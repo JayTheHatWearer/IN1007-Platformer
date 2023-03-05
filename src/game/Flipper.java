@@ -1,7 +1,9 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
+import city.cs.engine.StaticBody;
+import city.cs.engine.World;
 
 import java.awt.*;
 

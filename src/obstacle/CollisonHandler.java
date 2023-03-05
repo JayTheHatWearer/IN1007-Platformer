@@ -3,6 +3,7 @@ package obstacle;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import game.CheckPoint;
+import game.Flipper;
 import game.Student;
 import org.jbox2d.common.Vec2;
 
@@ -25,7 +26,9 @@ public class CollisonHandler implements CollisionListener {
             student.setReturnPosition(((CheckPoint) e.getOtherBody()).getCheckpointLocation());
             e.getOtherBody().setFillColor(new Color(0, 100, 0));
             e.getOtherBody().setLineColor(new Color(0, 100, 0));
-
+        } else if (e.getOtherBody() instanceof Flipper) {
+            student.setFlipped((!student.getFlipped()));
+            e.getOtherBody().destroy();
         }
     }
 }

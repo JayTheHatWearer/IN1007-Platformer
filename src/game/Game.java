@@ -1,6 +1,6 @@
 package game;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * Your main game entry point

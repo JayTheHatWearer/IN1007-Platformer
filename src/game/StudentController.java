@@ -1,12 +1,7 @@
 package game;
 
-import city.cs.engine.*;
-import org.jbox2d.common.Vec2;
-
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.concurrent.TimeUnit;
 
 public class StudentController implements KeyListener {
     boolean isFlipped;

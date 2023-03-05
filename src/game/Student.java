@@ -1,13 +1,12 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
+import city.cs.engine.Walker;
+import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
-import javax.sound.sampled.AudioInputStream;
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 public class Student extends Walker {
 
