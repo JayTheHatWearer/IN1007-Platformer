@@ -31,10 +31,11 @@ public class Student extends Walker {
         if (isFlipped) {
             setGravityScale(-1.5f);
             setFillColor(Color.MAGENTA);
+            setLineColor(Color.MAGENTA);
         } else {
             setGravityScale(1.5f);
-            ;
             setFillColor(Color.PINK);
+            setLineColor(Color.PINK);
         }
     }
 

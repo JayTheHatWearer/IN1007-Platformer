@@ -2,16 +2,14 @@ package obstacle;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.CheckPoint;
-import game.Flipper;
-import game.Student;
+import game.*;
 import org.jbox2d.common.Vec2;
 
 import java.awt.*;
 
 public class CollisonHandler implements CollisionListener {
 
-    private Student student;
+    private final Student student;
     public CollisonHandler(Student s) {
         this.student = s;
     }
@@ -29,6 +27,10 @@ public class CollisonHandler implements CollisionListener {
         } else if (e.getOtherBody() instanceof Flipper) {
             student.setFlipped((!student.getFlipped()));
             e.getOtherBody().destroy();
+        } else if (e.getOtherBody() instanceof FinishLine) {
+            e.getOtherBody().destroy();
+            student.destroy();
+            Game.getLevelManager().loadLevel(Game.getView(), ((FinishLine) e.getOtherBody()).getNextLevel());
         }
     }
 }

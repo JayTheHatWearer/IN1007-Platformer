@@ -34,6 +34,5 @@ public class StudentController implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         student.stopWalking();
-
     }
 }

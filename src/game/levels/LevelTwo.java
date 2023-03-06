@@ -1,14 +1,17 @@
-package game;
+package game.levels;
 
 import city.cs.engine.BoxShape;
 import city.cs.engine.World;
+import game.CheckPoint;
+import game.Flipper;
+import game.Platform;
+import game.Student;
 import obstacle.CollisonHandler;
 import org.jbox2d.common.Vec2;
 
-public class LevelOne extends World {
-    private Student student;
-    private int checkpointState;
-    public LevelOne() {
+public class LevelTwo extends World {
+    private final Student student;
+    public LevelTwo() {
         super();
 
         //init ground
@@ -49,7 +52,7 @@ public class LevelOne extends World {
         Flipper flipperThree = new Flipper(this);
         flipperThree.setPosition(new Vec2(3f, -6f));
 
-        CheckPoint finishLine = new CheckPoint(this, new BoxShape(6f, 1f));
+        CheckPoint finishLine = new CheckPoint(this, new BoxShape(2f, 1f));
         finishLine.setPosition(new Vec2(9f, 12f));
         //make a character (with an overlaid image)
         student = new Student(this);

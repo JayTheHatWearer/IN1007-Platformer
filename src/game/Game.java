@@ -1,5 +1,7 @@
 package game;
 
+import game.levels.LevelZero;
+
 import javax.swing.*;
 
 /**
@@ -8,24 +10,23 @@ import javax.swing.*;
 public class Game {
 
 
-    /** Initialise a new Game. */
+    private static LevelManager mainLevel;
+    private static GameView view;
+
+    /**
+     * Initialise a new Game.
+     */
     public Game() {
+        LevelZero initLevel = new LevelZero();
 
-        //1. make an empty game world
-        LevelOne world = new LevelOne();
+        mainLevel = new LevelManager();
 
-        //2. populate it with bodies (ex: platforms, collectibles, characters)
-
-        //3. make a view to look into the game world
-        // UserView view = new UserView(world, 500, 500);
-        GameView view = new GameView(world, 500, 500);
-
-        StudentController controller = new StudentController(world.getStudent());
-        view.addKeyListener(controller);
+        view = new GameView(initLevel, 500, 500);
+        mainLevel.loadLevel(view, 0);
 
 
         GiveFocus focusChecker = new GiveFocus(view);
-                view.addMouseListener(focusChecker);
+        view.addMouseListener(focusChecker);
         //4. create a Java window (frame) and add the game
         //   view to it
         final JFrame frame = new JFrame("Phase Switch");
@@ -43,17 +44,24 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-       //  JFrame debugView = new DebugViewer(world, 500, 500);
+        //  JFrame debugView = new DebugViewer(world, 500, 500);
 
-        // start our game world simulation!
-        world.start();
 
         view.requestFocus();
     }
 
-    /** Run the game. */
+    /**
+     * Run the game.
+     */
     public static void main(String[] args) {
-
         new Game();
+    }
+
+    public static GameView getView() {
+        return view;
+    }
+
+    public static LevelManager getLevelManager() {
+        return mainLevel;
     }
 }

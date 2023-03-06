@@ -12,5 +12,6 @@ public class Platform extends StaticBody {
         setAlwaysOutline(false);
         setFillColor(Color.GRAY);
         setLineColor(Color.GRAY);
+
     }
 }
