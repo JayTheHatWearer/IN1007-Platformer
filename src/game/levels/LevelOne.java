@@ -51,9 +51,11 @@ public class LevelOne extends World {
         Platform containerTwoHigh = new Platform(this, new BoxShape(1f, 4f));
         containerTwoHigh.setPosition(new Vec2(-3f, 8f));
 
-
         Platform containerThree = new Platform(this, new BoxShape(1f, 6f));
         containerThree.setPosition(new Vec2(0f, -6f));
+
+        Platform containerThreeHigh = new Platform(this, new BoxShape(1f, 2f));
+        containerThreeHigh.setPosition(new Vec2(0f, 10f));
 
         Platform containerFour = new Platform(this, new BoxShape(1f, 8f));
         containerFour.setPosition(new Vec2(3f, -4f));

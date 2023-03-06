@@ -2,7 +2,7 @@ package game.levels;
 
 import city.cs.engine.BoxShape;
 import city.cs.engine.World;
-import game.CheckPoint;
+import game.FinishLine;
 import game.Flipper;
 import game.Platform;
 import game.Student;
@@ -13,11 +13,20 @@ public class LevelTwo extends World {
     private final Student student;
     public LevelTwo() {
         super();
-
         //init ground
+        Populate();
 
+        //make a character (with an overlaid image)
+        student = new Student(this);
+        student.setPosition(new Vec2(-9f, 10f));
+        student.setReturnPosition(new Vec2(-9f, -9f));
+        CollisonHandler obstacleMain = new CollisonHandler(student);
+        student.addCollisionListener(obstacleMain);
+    }
+
+    private void Populate() {
         Platform groundOne = new Platform(this, new BoxShape(12f, 1f));
-        groundOne.setPosition(new Vec2(-4f, -12f));
+        groundOne.setPosition(new Vec2(0f, -12f));
 
         Platform leftWall = new Platform(this, new BoxShape(1f, 12));
         leftWall.setPosition(new Vec2(-12f, 0f));
@@ -25,43 +34,46 @@ public class LevelTwo extends World {
         Platform rightWall = new Platform(this, new BoxShape(1f, 14));
         rightWall.setPosition(new Vec2(12f, 0f));
 
-        Platform roofOne = new Platform(this, new BoxShape(11f, 1f));
-        roofOne.setPosition(new Vec2(-4f, 12f));
+        Platform roofOne = new Platform(this, new BoxShape(12f, 1f));
+        roofOne.setPosition(new Vec2(-5f, 12f));
 
-        Platform containerOne = new Platform(this, new BoxShape(1f, 10f));
-        containerOne.setPosition(new Vec2(-6f,-2f));
+        Platform containerZero = new Platform(this, new BoxShape(2f, 4f));
+        containerZero.setPosition(new Vec2(-9f, 4f));
 
-        Platform containerTwo = new Platform(this, new BoxShape(1f, 10f));
-        containerTwo.setPosition(new Vec2(0f,2f));
+        Platform containerOne = new Platform(this, new BoxShape(3.9f, 3f));
+        containerOne.setPosition(new Vec2(-5f, -5.9f));
 
-        Platform containerThree = new Platform(this, new BoxShape(1f, 6f));
-        containerThree.setPosition(new Vec2(6f,-8f));
+        Platform containerTwo = new Platform(this, new BoxShape(1.9f, 9.9f));
+        containerTwo.setPosition(new Vec2(-3f, 2f));
 
-        Platform containerFour = new Platform(this, new BoxShape(4f, 6f));
-        containerFour.setPosition(new Vec2(3f,8));
+        Platform containerThree = new Platform(this, new BoxShape(1f, 1f));
+        containerThree.setPosition(new Vec2(2f, -10f));
 
-        Platform containerFive = new Platform(this, new BoxShape(4f, 6f));
-        containerFive.setPosition(new Vec2(10f,-8));
+        Platform containerFour = new Platform(this, new BoxShape(1f, 1f));
+        containerFour.setPosition(new Vec2(-0.2f, -5f));
 
-        Flipper flipperOne = new Flipper(this);
-        flipperOne.setPosition(new Vec2(-9f, -6f));
+        Platform containerSix = new Platform(this, new BoxShape(1f, 1f));
+        containerSix.setPosition(new Vec2(2f, 0f));
 
-        Flipper flipperTwo = new Flipper(this);
-        flipperTwo.setPosition(new Vec2(-3f, 6f));
 
-        Flipper flipperThree = new Flipper(this);
-        flipperThree.setPosition(new Vec2(3f, -6f));
+        Platform containerSeven = new Platform(this, new BoxShape(1f, 1f));
+        containerSeven.setPosition(new Vec2(-0.2f, 5f));
 
-        CheckPoint finishLine = new CheckPoint(this, new BoxShape(2f, 1f));
+
+        Platform containerFive = new Platform(this, new BoxShape(0.5f, 10f));
+        containerFive.setPosition(new Vec2(3.4f, -2f));
+
+        Platform containerEight = new Platform(this, new BoxShape(0.5f, 10f));
+        containerEight.setPosition(new Vec2(6.5f, 2f));
+
+        Flipper newFlipper = new Flipper(this);
+        newFlipper.setPosition(new Vec2(9f, -6f));
+
+        FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
         finishLine.setPosition(new Vec2(9f, 12f));
-        //make a character (with an overlaid image)
-        student = new Student(this);
-        student.setPosition(new Vec2(-9f, -9f));
-        student.setReturnPosition(new Vec2(-9f, -9f));
-        CollisonHandler obstacleMain = new CollisonHandler(student);
-        student.addCollisionListener(obstacleMain);
-    }
+        finishLine.setNextLevel(3);
 
+    }
     public Student getStudent() {
         return student;
     }

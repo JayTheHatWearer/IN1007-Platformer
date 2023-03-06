@@ -1,6 +1,7 @@
 package game;
 
 import game.levels.LevelOne;
+import game.levels.LevelThree;
 import game.levels.LevelTwo;
 import game.levels.LevelZero;
 import org.jetbrains.annotations.NotNull;
@@ -28,12 +29,21 @@ public class LevelManager {
                 view.addKeyListener(controllerOne);
                 worldOne.start();
             }
+
             case 2 -> {
                 LevelTwo worldTwo = new LevelTwo();
                 view.setWorld(worldTwo);
                 StudentController controllerTwo = new StudentController(worldTwo.getStudent());
                 view.addKeyListener(controllerTwo);
                 worldTwo.start();
+            }
+
+            case 3 -> {
+                LevelThree worldThree = new LevelThree();
+                view.setWorld(worldThree);
+                StudentController controllerThree = new StudentController(worldThree.getStudent());
+                view.addKeyListener(controllerThree);
+                worldThree.start();
             }
         }
     }

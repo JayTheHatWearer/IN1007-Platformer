@@ -22,7 +22,7 @@ public class Game {
         mainLevel = new LevelManager();
 
         view = new GameView(initLevel, 500, 500);
-        mainLevel.loadLevel(view, 0);
+        mainLevel.loadLevel(view, 2);
 
 
         GiveFocus focusChecker = new GiveFocus(view);
