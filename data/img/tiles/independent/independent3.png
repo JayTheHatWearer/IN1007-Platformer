@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://ezgif.com/crop/ezgif-4-33eed831b0.png -->
+<html lang="en" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="qc-cmp2" data-nosnippet="">.qc-cmp2-persistent-link {cursor:pointer; position:fixed; background-color:#368BD6;padding:5px 15px; color:#FFF; display:flex; text-decoration: none;align-items:center; max-height:30px; z-index:2147483640;bottom:0; right:0;border-top-left-radius:3px;border-top-right-radius:3px;}.qc-cmp2-persistent-link:focus {outline: -webkit-focus-ring-color auto 1px;}.qc-cmp2-persistent-link img {width:16px; height:17px; margin-right:5px;}</style><meta name="viewport" content="width=device-width"><title>Crop animated GIF - lab tileset finished transparent.png</title><meta name="description" content="Upload and crop GIFs. Simple, free online web based tool designed to quickly crop or slice parts of animated images. Upload GIF from your your device or enter URL..."><meta property="og:type" content="article"><meta property="og:title" content="Crop animated GIFs (free online tool)"><meta property="og:image" content="https://ezgif.com/images/ezgif-crop.png"><meta property="og:url" content="https://ezgif.com/crop"><meta property="og:description" content="A simple, free online tool for cropping and slicing animated gifs. Upload your GIF and select the part of the image you want to crop or enter new width and height."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@ezgif_com"><link rel="stylesheet" href="./independent3_files/e.css"><link rel="apple-touch-icon-precomposed" href="https://ezgif.com/apple-touch-icon-precomposed.png"><link rel="icon" href="https://ezgif.com/favicon.ico"><link rel="canonical" href="https://ezgif.com/crop"><script src="./independent3_files/quant.js.download" async="" type="text/javascript"></script><script async="" type="text/javascript" src="./independent3_files/cmp2.js.download"></script><script async="" src="./independent3_files/aax.js.download"></script><script async="" type="text/javascript" src="./independent3_files/choice.js.download"></script><script src="./independent3_files/quant.js.download" async=""></script><script src="./independent3_files/jquery.min.js.download"></script><script src="./independent3_files/jquery-ui.min.js.download"></script><script src="./independent3_files/ezgif.js.download"></script><link rel="stylesheet" href="./independent3_files/jquery.Jcrop.min.css"><script src="./independent3_files/jquery.Jcrop.min.js.download"></script>
+
+<!-- Quantcast Tag --><script>var _qevents = _qevents || [];
+
+(function() {
+var elem = document.createElement('script');
+elem.src = "https://secure.quantserve.com/quant.js";
+elem.async = true;
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+
+_qevents.push({
+qacct:"p-XD4Yb4bFmpVdn"
+});
+</script><!-- End Quantcast tag --><!-- Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) --><script type="text/javascript" async="true">(function() {
+ var host = window.location.hostname;
+ var element = document.createElement('script');
+ var firstScript = document.getElementsByTagName('script')[0];
+ var url = 'https://cmp.quantcast.com'
+ .concat('/choice/', 'XD4Yb4bFmpVdn', '/', host, '/choice.js');
+ var uspTries = 0;
+ var uspTriesLimit = 3;
+ element.async = true;
+ element.type = 'text/javascript';
+ element.src = url;
+
+ firstScript.parentNode.insertBefore(element, firstScript);
+
+ function makeStub() {
+ var TCF_LOCATOR_NAME = '__tcfapiLocator';
+ var queue = [];
+ var win = window;
+ var cmpFrame;
+
+ function addFrame() {
+ var doc = win.document;
+ var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+ if (!otherCMP) {
+ if (doc.body) {
+ var iframe = doc.createElement('iframe');
+
+ iframe.style.cssText = 'display:none';
+ iframe.name = TCF_LOCATOR_NAME;
+ doc.body.appendChild(iframe);
+ } else {
+ setTimeout(addFrame, 5);
+ }
+ }
+ return !otherCMP;
+ }
+
+ function tcfAPIHandler() {
+ var gdprApplies;
+ var args = arguments;
+
+ if (!args.length) {
+ return queue;
+ } else if (args[0] === 'setGdprApplies') {
+ if (
+ args.length > 3 &&
+ args[2] === 2 &&
+ typeof args[3] === 'boolean'
+ ) {
+ gdprApplies = args[3];
+ if (typeof args[2] === 'function') {
+ args[2]('set', true);
+ }
+ }
+ } else if (args[0] === 'ping') {
+ var retr = {
+ gdprApplies: gdprApplies,
+ cmpLoaded: false,
+ cmpStatus: 'stub'
+ };
+
+ if (typeof args[2] === 'function') {
+ args[2](retr);
+ }
+ } else {
+ if(args[0] === 'init' && typeof args[3] === 'object') {
+ args[3] = { ...args[3], tag_version: 'V2' };
+ }
+ queue.push(args);
+ }
+ }
+
+ function postMessageEventHandler(event) {
+ var msgIsString = typeof event.data === 'string';
+ var json = {};
+
+ try {
+ if (msgIsString) {
+ json = JSON.parse(event.data);
+ } else {
+ json = event.data;
+ }
+ } catch (ignore) {}
+
+ var payload = json.__tcfapiCall;
+
+ if (payload) {
+ window.__tcfapi(
+ payload.command,
+ payload.version,
+ function(retValue, success) {
+ var returnMsg = {
+  __tcfapiReturn: {
+ returnValue: retValue,
+ success: success,
+ callId: payload.callId
+  }
+ };
+ if (msgIsString) {
+  returnMsg = JSON.stringify(returnMsg);
+ }
+ if (event && event.source && event.source.postMessage) {
+  event.source.postMessage(returnMsg, '*');
+ }
+ },
+ payload.parameter
+ );
+ }
+ }
+
+ while (win) {
+ try {
+ if (win.frames[TCF_LOCATOR_NAME]) {
+ cmpFrame = win;
+ break;
+ }
+ } catch (ignore) {}
+
+ if (win === window.top) {
+ break;
+ }
+ win = win.parent;
+ }
+ if (!cmpFrame) {
+ addFrame();
+ win.__tcfapi = tcfAPIHandler;
+ win.addEventListener('message', postMessageEventHandler, false);
+ }
+ };
+
+ makeStub();
+
+ var uspStubFunction = function() {
+ var arg = arguments;
+ if (typeof window.__uspapi !== uspStubFunction) {
+ setTimeout(function() {
+ if (typeof window.__uspapi !== 'undefined') {
+ window.__uspapi.apply(window.__uspapi, arg);
+ }
+ }, 500);
+ }
+ };
+
+ var checkIfUspIsReady = function() {
+ uspTries++;
+ if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+ console.warn('USP is not accessible');
+ } else {
+ clearInterval(uspInterval);
+ }
+ };
+
+ if (typeof window.__uspapi === 'undefined') {
+ window.__uspapi = uspStubFunction;
+ var uspInterval = setInterval(checkIfUspIsReady, 6000);
+ }
+})();
+</script><!-- End Quantcast Choice. Consent Manager Tag v2.0 (for TCF 2.0) -->
+<script src="./independent3_files/in-view.min.js.download"></script><script>inView.offset(-400);</script>
+<script src="./independent3_files/gpt.js.download" async=""></script><script> window.googletag = window.googletag || {cmd: []};
+ googletag.cmd.push (function () {
+ if(window.innerWidth > 1000) {
+ googletag.defineSlot('/147246189,21770999482/ezgif.com_728x90_desktop_top', [728, 90], 'ezgif.com_728x90_top_responsive').addService(googletag.pubads());
+ googletag.defineSlot('/147246189,21770999482/ezgif.com_300x600_1', [[300, 250], [300, 600]], 'ezgif.com_300x600_1').addService(googletag.pubads());
+ googletag.defineSlot('/147246189,21770999482/ezgif.com_300x600_2', [[300, 250], [300, 600]], 'ezgif.com_300x600_2').addService(googletag.pubads());
+ } else {
+ googletag.defineSlot('/147246189,21770999482/ezgif.com_336x320_mobile_top', [300, 250], 'ezgif.com_728x90_top_responsive').addService(googletag.pubads());
+ }
+ googletag.pubads().enableSingleRequest();
+ googletag.pubads().disableInitialLoad();
+ googletag.enableServices();
+ });
+</script><script src="./independent3_files/3148" async=""></script>
+<script> (function() {
+ window.aax = window.aax || {};
+ var aax = window.aax;
+ aax.initTime = new Date().getTime();
+ aax.pubId = "AAX5H4CNQ";
+ aax.ver = "1.2";
+ aax.hst = window.location.hostname;
+ var aaxEndpoint = "https://c.aaxads.com/aax.js?pub=" + aax.pubId + "&hst=" +
+ aax.hst + "&ver=" + aax.ver;
+
+ function loadScript(endpoint) {
+ var scriptTag = document.createElement("script"),
+ placeTag = document.getElementsByTagName("script")[0];
+ scriptTag.async = true;
+ scriptTag.src = endpoint;
+ placeTag.parentNode.insertBefore(scriptTag, placeTag);
+ }
+ loadScript(aaxEndpoint);
+})(); 
+</script>
+<script src="./independent3_files/tag" async=""></script>
+<style type="text/css"> .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #368bd6 !important;    border-color: transparent !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #368bd6 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  } </style></head><body class="no-sidebar"><div class="qc-cmp2-container" id="qc-cmp2-container" data-nosnippet=""><a class="qc-cmp2-persistent-link" id="qc-cmp2-persistent-link" data-nosnippet="" tabindex="0" href="https://ezgif.com/crop/ezgif-4-33eed831b0.png#"><img data-nosnippet="" src="data:image/svg+xml,%3Csvg viewBox=&#39;0 0 16 17&#39; version=&#39;1.1&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39; xmlns:xlink=&#39;http://www.w3.org/1999/xlink&#39; style=&#39;margin-right: 5px; height: 17px;&#39;%3E%3Cg id=&#39;Page-1&#39; stroke=&#39;none&#39; stroke-width=&#39;1&#39; fill=&#39;none&#39; fill-rule=&#39;evenodd&#39;%3E%3Cg id=&#39;cog&#39; fill=&#39;%23FFFFFF&#39; fill-rule=&#39;nonzero&#39;%3E%3Cpath d=&#39;M15.596917,9.98326938 L14.5041079,9.33798816 C14.5728064,8.7815386 14.5728064,8.2184614 14.5041079,7.66201184 L15.596917,7.01673062 C15.9178229,6.82726259 16.0726124,6.43742732 15.9670848,6.0741546 C15.5912871,4.78033611 14.9223646,3.61573153 14.0390021,2.66061113 C13.7831755,2.38401797 13.3749053,2.32348965 13.0525249,2.51384881 L11.9613243,3.15813608 C11.5248519,2.81840117 11.0481221,2.53648663 10.542482,2.31910255 L10.542482,1.02991108 C10.542482,0.648438733 10.2860522,0.316869683 9.92305592,0.229024792 C8.66155,-0.07632446 7.33871809,-0.0763587342 6.07694408,0.229024792 C5.71398131,0.316869683 5.457518,0.648404458 5.457518,1.02991108 L5.457518,2.31910255 C4.95187406,2.53647872 4.47514334,2.81839382 4.03867572,3.15813608 L2.94747511,2.51384881 C2.62506122,2.32348965 2.21679094,2.38401797 1.96099786,2.66061113 C1.07763542,3.61573153 0.40871289,4.78037038 0.0329152236,6.0741546 C-0.072612407,6.43742732 0.0821770899,6.82722832 0.403082962,7.01673062 L1.49589212,7.66201184 C1.42719356,8.2184614 1.42719356,8.7815386 1.49589212,9.33798816 L0.403082962,9.98326938 C0.0821770899,10.1727374 -0.072612407,10.5625727 0.0329152236,10.9258454 C0.40871289,12.2196296 1.07763542,13.3842685 1.96099786,14.3393889 C2.21682445,14.615982 2.62509474,14.6765103 2.94747511,14.4861855 L4.03867572,13.8418982 C4.47514096,14.1816349 4.95187243,14.4635389 5.457518,14.6808975 L5.457518,15.9700889 C5.457518,16.3515613 5.7139478,16.6831303 6.07694408,16.7709752 C7.33848351,17.0763245 8.66128191,17.0763587 9.92305592,16.7709752 C10.2860187,16.6831303 10.542482,16.3515955 10.542482,15.9700889 L10.542482,14.6808975 C11.0481183,14.4635198 11.5248475,14.1816171 11.9613243,13.8418982 L13.0525249,14.4861855 C13.3749053,14.6765446 13.7831755,14.6160163 14.0390021,14.3393889 C14.9223646,13.3842685 15.5912871,12.2196296 15.9670848,10.9258454 C16.0726124,10.5625727 15.9178229,10.1727717 15.596917,9.98326938 Z M13.4026193,13.4264943 L11.8507364,12.510001 C10.9463288,13.3007421 10.6255905,13.4997041 9.47011484,13.9172673 L9.47011484,15.7502196 C8.50024808,15.9548373 7.49975192,15.9548373 6.52988516,15.7502196 L6.52988516,13.9172673 C5.4031959,13.5101235 5.07699522,13.3210668 4.14926358,12.510001 L2.59738075,13.4264943 C1.9368696,12.6693763 1.43490124,11.7817076 1.12525522,10.8230912 L2.67780828,9.90659789 C2.4588108,8.69270694 2.45871027,8.30790999 2.67780828,7.09340211 L1.12525522,6.17690879 C1.43490124,5.21829242 1.93690311,4.33058946 2.59738075,3.57312864 L4.14926358,4.49030745 C5.0667072,3.68712478 5.39129933,3.4941265 6.52988516,3.08269846 L6.52988516,1.24978037 C7.49971774,1.04482059 8.50028226,1.04482059 9.47011484,1.24978037 L9.47011484,3.08273274 C10.6087677,3.49419505 10.9333933,3.6872276 11.8507364,4.49034172 L13.4026193,3.57316291 C14.0630969,4.33058946 14.5650988,5.21829242 14.8747448,6.17694306 L13.3221917,7.09343638 C13.5412227,8.3076358 13.5412897,8.69212428 13.3221917,9.90663217 L14.8747448,10.8231255 C14.5650988,11.7817076 14.0631304,12.6694105 13.4026193,13.4264943 Z M8,5.20968958 C6.22607014,5.20968958 4.78289853,6.68570996 4.78289853,8.50001714 C4.78289853,10.3143243 6.22607014,11.7903447 8,11.7903447 C9.77392986,11.7903447 11.2171015,10.3143243 11.2171015,8.50001714 C11.2171015,6.68570996 9.77392986,5.20968958 8,5.20968958 Z M8,10.6935688 C6.81738009,10.6935688 5.85526568,9.70955526 5.85526568,8.50001714 C5.85526568,7.29047902 6.81738009,6.30646543 8,6.30646543 C9.18261991,6.30646543 10.1447343,7.29047902 10.1447343,8.50001714 C10.1447343,9.70955526 9.18261991,10.6935688 8,10.6935688 Z&#39; id=&#39;Shape&#39;%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E" alt="Privacy">Privacy</a></div><div class="ww" id="wrapper"><div id="header"><a id="logo" href="https://ezgif.com/" title="Online animated GIF tools">ezGif.com <span>Animated GIFs Made Easy</span></a><div id="hdr"><div id="ezgif.com_728x90_top_responsive" style="min-width:300px;min-height:90px;"><script>googletag.cmd.push(function() { googletag.display('ezgif.com_728x90_top_responsive'); });</script></div> </div><nav><ul id="menu"><li><a class="gifmaker" href="https://ezgif.com/maker" title="Make animated GIF from still frames or edit frame order and duration of existing GIF">GIF Maker</a></li><li><a class="video" href="https://ezgif.com/video-to-gif" title="Video to GIF converter">Video to GIF</a></li><li><a class="resize" href="https://ezgif.com/resize" title="Resize animated image">Resize</a></li><li><a class="rotate" href="https://ezgif.com/rotate" title="Rotate / reverse animated GIFs and images">Rotate</a></li><li class="active"><a class="crop" href="https://ezgif.com/crop" title="Crop selection of image">Crop</a></li><li><a class="cut" href="https://ezgif.com/cut" title="Cut animation duration">Cut</a></li><li><a class="optimize" href="https://ezgif.com/optimize" title="Reduce animation size">Optimize</a></li><li><a class="effects" href="https://ezgif.com/effects" title="Add effects to images and animations">Effects</a></li><li><a class="split" href="https://ezgif.com/split" title="Split GIF image to frames">Split</a></li><li><a class="add-text" href="https://ezgif.com/add-text" title="Write text over GIF image">Add text</a></li><li><a class="webp" href="https://ezgif.com/webp-maker" title="Animated WebP maker and tools">WebP</a></li><li><a class="apng" href="https://ezgif.com/apng-maker" title="Animated PNG (APNG) maker and tools">APNG</a></li><li><a class="avif" href="https://ezgif.com/avif-maker" title="AVIF tools">AVIF</a></li></ul></nav><div class="c"></div></div>
+<div id="content" class="crop-content"><aside id="sidebar"><div class="sky"><div id="ezgif.com_300x600_1" style="width:300px;height:600px;"><script>googletag.cmd.push(function() { googletag.display('ezgif.com_300x600_1'); });</script></div></div><br><div class="sky"><div id="ezgif.com_300x600_2" style="width:300px;height:600px;"><script>googletag.cmd.push(function() { googletag.display('ezgif.com_300x600_2'); });</script></div></div></aside><div id="main"><h1>Crop animated GIF image</h1>
+
+<script>$(document).ready(function () {
+var jcrop_api;
+$('#target').Jcrop({
+onChange: showCoords,
+onSelect: showCoords
+}, function () {
+jcrop_api = this;
+var initial_width = Math.floor(960 -960 / 8);
+var initial_height = Math.floor(576 -576 / 8);
+var initial_x_offset = Math.floor(960 / 8);
+var initial_y_offset = Math.floor(576 / 8);
+jcrop_api.setSelect([initial_x_offset, initial_y_offset, initial_width, initial_height]);
+
+});
+
+$('#set-to').click(function (e) {
+var r_x1 = Math.floor($('#x1').val());
+var r_y1 = Math.floor($('#y1').val());
+var r_x2 = r_x1 + Math.floor($('#w').val());
+var r_y2 = r_y1 + Math.floor($('#h').val());
+jcrop_api.setSelect([r_x1, r_y1, r_x2, r_y2]);
+return false;
+});
+
+$('#square').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 1} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+$('#as43').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 1.333333333} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+$('#as169').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 1.777777778} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+$('#as32').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 1.5} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+$('#as21').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 2} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+$('#as12').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 0.5} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+$('#golden').change(function (e) {
+jcrop_api.setOptions(this.checked ? {aspectRatio: 1.618033988} : {aspectRatio: 0});
+jcrop_api.focus();
+});
+
+});
+
+function showCoords(c) {
+$('#x1').val(Math.floor(c.x));
+$('#y1').val(Math.floor(c.y));
+$('#x2').val(Math.floor(c.x2));
+$('#y2').val(Math.floor(c.y2));
+$('#w').val(Math.floor(c.w));
+$('#h').val(Math.floor(c.h));
+}
+
+</script>
+<div><table class="file-menu"><tbody><tr><td><a href="https://ezgif.com/crop/ezgif-4-33eed831b0.png" title="Crop image" class="active"><span class="icon"><img src="./independent3_files/transform-crop-and-resize.png" alt="crop"></span>crop</a></td><td><a href="https://ezgif.com/resize/ezgif-4-33eed831b0.png" title="Resize image"><span class="icon"><img src="./independent3_files/transform-scale.png" alt="resize"></span>resize</a></td><td><a href="https://ezgif.com/rotate/ezgif-4-33eed831b0.png" title="Rotate image"><span class="icon"><img src="./independent3_files/transform-rotate.png" alt="rotate"></span>rotate</a></td><td><a href="https://ezgif.com/optipng/ezgif-4-33eed831b0.png" title="Compress image"><span class="icon"><img src="./independent3_files/run-build-clean.png" alt="optimize"></span>optimize</a></td><td><a href="https://ezgif.com/reverse/ezgif-4-33eed831b0.png" title="Reverse animation"><span class="icon"><img src="./independent3_files/reverse.png" alt="reverse"></span>reverse</a></td><td><a href="https://ezgif.com/effects/ezgif-4-33eed831b0.png" title="Rotate, reverse, flip, add color filters..."><span class="icon"><img src="./independent3_files/tools-wizard.png" alt="effects"></span>effects</a></td><td><a href="https://ezgif.com/add-text/ezgif-4-33eed831b0.png" title="Add text over image"><span class="icon"><img src="./independent3_files/insert-text.png" alt="write"></span>write</a></td><td><a href="https://ezgif.com/censor/ezgif-4-33eed831b0.png" title="Censor the image (pixelate or blur selected areas)"><span class="icon"><img src="./independent3_files/censor.png" alt="censor"></span>censor</a></td><td><a href="https://ezgif.com/overlay/ezgif-4-33eed831b0.png" title="Add watermark or logo"><span class="icon"><img src="./independent3_files/insert-image.png" alt="overlay"></span>overlay</a></td><td><a href="https://ezgif.com/png-to-jpg/ezgif-4-33eed831b0.png" title="Convert PNG to JPG"><span class="icon"><img src="./independent3_files/convert.png" alt="to JPG"></span>to JPG</a></td><td><a class="save" href="https://ezgif.com/save/ezgif-4-33eed831b0.png" download=""><span class="icon"><img src="./independent3_files/document-save.png" alt="save"></span>save</a></td></tr></tbody></table></div>
+<img src="./independent3_files/ezgif-4-33eed831b0.png" style="width: 960px; height: 576px; display: none; visibility: hidden;" id="target" alt="Image lab tileset finished transparent.png"><div class="jcrop-holder" style="width: 960px; height: 576px; position: relative; background-color: rgb(0, 0, 0);"><div style="position: absolute; z-index: 600; width: 32px; height: 32px; top: 480px; left: 704px; display: block;"><div style="width: 100%; height: 100%; z-index: 310; position: absolute; overflow: hidden;"><img src="./independent3_files/ezgif-4-33eed831b0.png" style="border: none; visibility: visible; margin: 0px; padding: 0px; position: absolute; top: -480px; left: -704px; width: 960px; height: 576px;"><div class="jcrop-hline" style="position: absolute; opacity: 0.4;"></div><div class="jcrop-hline bottom" style="position: absolute; opacity: 0.4;"></div><div class="jcrop-vline right" style="position: absolute; opacity: 0.4;"></div><div class="jcrop-vline" style="position: absolute; opacity: 0.4;"></div><div class="jcrop-tracker" style="cursor: move; position: absolute; z-index: 360;"></div></div><div style="width: 100%; height: 100%; z-index: 320; display: block;"><div class="ord-n jcrop-dragbar" style="cursor: n-resize; position: absolute; z-index: 370;"></div><div class="ord-s jcrop-dragbar" style="cursor: s-resize; position: absolute; z-index: 371;"></div><div class="ord-e jcrop-dragbar" style="cursor: e-resize; position: absolute; z-index: 372;"></div><div class="ord-w jcrop-dragbar" style="cursor: w-resize; position: absolute; z-index: 373;"></div><div class="ord-n jcrop-handle" style="cursor: n-resize; position: absolute; z-index: 374; opacity: 0.5;"></div><div class="ord-s jcrop-handle" style="cursor: s-resize; position: absolute; z-index: 375; opacity: 0.5;"></div><div class="ord-e jcrop-handle" style="cursor: e-resize; position: absolute; z-index: 376; opacity: 0.5;"></div><div class="ord-w jcrop-handle" style="cursor: w-resize; position: absolute; z-index: 377; opacity: 0.5;"></div><div class="ord-nw jcrop-handle" style="cursor: nw-resize; position: absolute; z-index: 378; opacity: 0.5;"></div><div class="ord-ne jcrop-handle" style="cursor: ne-resize; position: absolute; z-index: 379; opacity: 0.5;"></div><div class="ord-se jcrop-handle" style="cursor: se-resize; position: absolute; z-index: 380; opacity: 0.5;"></div><div class="ord-sw jcrop-handle" style="cursor: sw-resize; position: absolute; z-index: 381; opacity: 0.5;"></div></div></div><div class="jcrop-tracker" style="width: 964px; height: 580px; position: absolute; top: -2px; left: -2px; z-index: 290; cursor: crosshair;"></div><input type="radio" class="jcrop-keymgr" style="position: fixed; left: -120px; width: 12px; display: none;"><img src="./independent3_files/ezgif-4-33eed831b0.png" style="width: 960px; height: 576px; display: block; visibility: visible; border: none; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; opacity: 0.6;" alt="Image lab tileset finished transparent.png"></div>
+<div style="height:3px"></div><p class="filestats">File size: <strong>42.48KiB</strong>, width: 960px, height: 576px, type: png <span class="convert-wrap">
+			<span class="convert-btn button" onclick="javascript:$(this).siblings(&#39;.convert-options&#39;).toggle();">convert <img src="./independent3_files/navigation-270-button-white.png" alt="" width="16" height="16"></span>
+			<span class="convert-options" style="display:none">
+				<a href="https://ezgif.com/apng-to-gif/ezgif-4-33eed831b0.png">to GIF</a><a href="https://ezgif.com/png-to-webp/ezgif-4-33eed831b0.png">to WebP</a><a href="https://ezgif.com/png-to-jpg/ezgif-4-33eed831b0.png">to JPG</a><a href="https://ezgif.com/apng-to-avif/ezgif-4-33eed831b0.png">to AVIF</a>
+			</span>
+		</span></p>
+<p><a href="https://ezgif.com/crop/ezgif-4-33eed831b0.png?extend" class="button primary small">Extend canvas size (add transparent area around the image)</a></p>
+<form id="coords" class="form coords ajax-form" action="https://ezgif.com/crop/ezgif-4-33eed831b0.png" method="POST"><input type="hidden" value="ezgif-4-33eed831b0.png" name="file">
+<p class="options"><label>Left: <input type="number" id="x1" name="x1" class="text number animate-to"></label><label>Top: <input type="number" id="y1" name="y1" class="text number animate-to"></label><label style="display:none;">X2 <input type="number" id="x2" name="x2" readonly="readonly" class="text number"></label><label style="display:none;">Y2 <input type="number" id="y2" name="y2" readonly="readonly" class="text number"></label><label>Width: <input type="number" id="w" name="w" class="text number animate-to"></label><label>Height: <input type="number" id="h" name="h" class="text number animate-to"></label><input type="submit" value="Set" id="set-to" class="button primary small"></p>
+<p class="options"><strong>Aspect ratio:</strong>
+<label class="checkbox"><input type="checkbox" name="square" id="square" class="single"> square
+</label>
+<label class="checkbox"><input type="checkbox" name="as43" id="as43" class="single"> 4:3
+</label>
+<label class="checkbox"><input type="checkbox" name="as169" id="as169" class="single"> 16:9
+</label>
+<label class="checkbox"><input type="checkbox" name="as32" id="as32" class="single"> 3:2
+</label>
+<label class="checkbox"><input type="checkbox" name="as21" id="as21" class="single"> 2:1
+</label>
+<label class="checkbox"><input type="checkbox" name="as12" id="as12" class="single"> 1:2
+</label>
+<label class="checkbox"><input type="checkbox" name="golden" id="golden" class="single"> golden ratio
+</label></p>
+
+
+<p id="tool-submit-button"><input type="submit" class="button primary" value="Crop image!" name="crop"></p>
+</form>
+
+
+
+
+<h2>Cropped image:</h2>
+<div id="output" style="opacity: 1;"><p class="outfile"><img src="./independent3_files/ezgif-4-b3f90fe1f6.png" style="width:32px;height:32px!important" alt="[crop output image]"></p><p class="filestats">File size: <strong>510B</strong> (<span style="color:green">-98.83%</span>), width: 32px, height: 32px, type: png <span class="convert-wrap">
+			<span class="convert-btn button" onclick="javascript:$(this).siblings(&#39;.convert-options&#39;).toggle();">convert <img src="./independent3_files/navigation-270-button-white.png" alt="" width="16" height="16"></span>
+			<span class="convert-options" style="display:none">
+				<a href="https://ezgif.com/apng-to-gif/ezgif-4-b3f90fe1f6.png">to GIF</a><a href="https://ezgif.com/png-to-webp/ezgif-4-b3f90fe1f6.png">to WebP</a><a href="https://ezgif.com/png-to-jpg/ezgif-4-b3f90fe1f6.png">to JPG</a><a href="https://ezgif.com/apng-to-avif/ezgif-4-b3f90fe1f6.png">to AVIF</a>
+			</span>
+		</span></p><table class="file-menu"><tbody><tr><td><a href="https://ezgif.com/crop/ezgif-4-b3f90fe1f6.png" title="Crop image" class="active"><span class="icon"><img src="./independent3_files/transform-crop-and-resize.png" alt="crop"></span>crop</a></td><td><a href="https://ezgif.com/resize/ezgif-4-b3f90fe1f6.png" title="Resize image"><span class="icon"><img src="./independent3_files/transform-scale.png" alt="resize"></span>resize</a></td><td><a href="https://ezgif.com/rotate/ezgif-4-b3f90fe1f6.png" title="Rotate image"><span class="icon"><img src="./independent3_files/transform-rotate.png" alt="rotate"></span>rotate</a></td><td><a href="https://ezgif.com/optipng/ezgif-4-b3f90fe1f6.png" title="Compress image"><span class="icon"><img src="./independent3_files/run-build-clean.png" alt="optimize"></span>optimize</a></td><td><a href="https://ezgif.com/reverse/ezgif-4-b3f90fe1f6.png" title="Reverse animation"><span class="icon"><img src="./independent3_files/reverse.png" alt="reverse"></span>reverse</a></td><td><a href="https://ezgif.com/effects/ezgif-4-b3f90fe1f6.png" title="Rotate, reverse, flip, add color filters..."><span class="icon"><img src="./independent3_files/tools-wizard.png" alt="effects"></span>effects</a></td><td><a href="https://ezgif.com/add-text/ezgif-4-b3f90fe1f6.png" title="Add text over image"><span class="icon"><img src="./independent3_files/insert-text.png" alt="write"></span>write</a></td><td><a href="https://ezgif.com/censor/ezgif-4-b3f90fe1f6.png" title="Censor the image (pixelate or blur selected areas)"><span class="icon"><img src="./independent3_files/censor.png" alt="censor"></span>censor</a></td><td><a href="https://ezgif.com/overlay/ezgif-4-b3f90fe1f6.png" title="Add watermark or logo"><span class="icon"><img src="./independent3_files/insert-image.png" alt="overlay"></span>overlay</a></td><td><a href="https://ezgif.com/png-to-jpg/ezgif-4-b3f90fe1f6.png" title="Convert PNG to JPG"><span class="icon"><img src="./independent3_files/convert.png" alt="to JPG"></span>to JPG</a></td><td><a class="save" href="https://ezgif.com/save/ezgif-4-b3f90fe1f6.png" download=""><span class="icon"><img src="./independent3_files/document-save.png" alt="save"></span>save</a></td></tr></tbody></table><p style="font-size:90%">Please do not directly link this file, but save it when finished.<br>The image will soon be deleted from our servers.<br>You can host images at sites like <a href="https://imgur.com/" target="_blank" rel="nofollow noopener" class="extrnl">imgur.com</a></p></div>
+<div style="margin:22px auto 15px;overflow:hidden;text-align:center;min-height:90px;display:block">
+<div id="ezgif_com_728x90_middle_responsive" style="text-align:center;min-width:300px;min-height:90px;">
+    <script type="text/javascript">
+        inView('#ezgif_com_728x90_middle_responsive').once('enter', (function() {
+            if(window.innerWidth > 1000) {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,21770999482/ezgif.com_728x90_desktop_middle', [728, 90], 'ezgif_com_728x90_middle_responsive').addService(googletag.pubads());
+                    googletag.display('ezgif_com_728x90_middle_responsive');
+                    stpd.initializeAdUnit('ezgif_com_728x90_middle_responsive')
+                });
+            } else {
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/147246189,21770999482/ezgif.com_336x320_mobile_middle', [300, 250], 'ezgif_com_728x90_middle_responsive').addService(googletag.pubads());
+                    googletag.display('ezgif_com_728x90_middle_responsive');
+                    stpd.initializeAdUnit('ezgif_com_728x90_middle_responsive')
+                });
+            }
+        }));
+    </script>
+</div>
+</div>
+
+
+<div class="txt"><h3>GIF cropping tool</h3><p>A simple online tool for cropping and slicing animated GIF, WebP, and PNG images.<br>Just upload the GIF and use your mouse or trackpad to select the part of the image you want to crop/trim.<br>You can also fill in the desired dimensions (in pixels) manually.<br></p><p>You can select one of the predefined aspect ratios: square, 4:3, 16:9, 3:2, 2:1, golden ratio, or freely select the area you want to crop.<br>It also features the Autocrop option, for trimming off transparent pixels around the image.<br> Extend canvas size button can be used to add transparent area around the image.
+</p><p>If there seem to be any problems with the output GIF file (missing frames/strange artifacts/flickering), try to select a different option under the "Crop with" dropdown. There may be differences, depending on the compression used for the source image. <a href="https://ezgif.com/help/flickering-gifs" title="Flickering GIFs - help">More about this problem.</a><br>The cropped image will generally have a smaller file size than the original unless you select the coalesce option which may undo previous optimizations and increase file size. So It's generally advised to avoid this option unless you experience problems with the quality of the output GIF.
+</p><p>In addition to GIFs, this tool can also be used to crop animated WebP and animated PNG (APNG) files or any other images, photos, and illustrations.
+</p><p>If you want to cut GIF animation duration instead of image dimensions, you should use our <a href="https://ezgif.com/cut/ezgif-4-33eed831b0.png">GIF length cut tool</a> instead.
+</p></div>
+</div><div class="c"></div></div></div><footer id="footer"><div class="ww fm"><div><ul><li><strong>Ezgif resources</strong></li><li><a href="https://ezgif.com/help">Help / FAQ</a></li><li><a href="https://ezgif.com/about">About and contacts</a></li><li><a href="https://ezgif.com/privacy">Privacy and Cookies</a></li><li><a href="https://ezgif.com/search">Search ezgif.com</a></li></ul></div><div><ul><li><strong>Video tools</strong></li><li><a href="https://ezgif.com/gif-to-mp4">GIF to MP4 converter</a></li><li><a href="https://ezgif.com/cut-video">Online video cutter</a></li><li><a href="https://ezgif.com/reverse-video">Video reverser</a></li><li><a href="https://ezgif.com/crop-video">Video crop tool</a></li><li><a href="https://ezgif.com/rotate-video">Video rotator</a></li></ul></div><div><ul><li><strong>Popular file converters</strong></li><li><a href="https://ezgif.com/pdf-to-gif" title="Convert PDF to GIF (animated or sequence)">PDF to GIF converter</a></li><li><a href="https://ezgif.com/png-to-jpg" title="Convert PNG images to JPG">PNG to JPG converter</a></li><li><a href="https://ezgif.com/webp-to-jpg" title="Convert WebP images to JPG">WebP to JPG converter</a></li><li><a href="https://ezgif.com/heic-to-jpg" title="Convert HEIC images to JPG">HEIC to JPG converter</a></li><li><a href="https://ezgif.com/avif-to-jpg" title="Online AVIF to JPG converter">AVIF to JPG converter</a></li></ul></div><div><ul><li><strong>Other image tools</strong></li><li><a href="https://ezgif.com/image-to-datauri" title="Convert image files to DataURI code">Image to Data URI</a></li><li><a href="https://ezgif.com/ani-to-gif" title="ANI to GIF converter">Cursor converter (.ani)</a></li><li><a href="https://ezgif.com/tiff-to-jpg" title="TIFF to JPG converter">TIFF converter</a></li><li><a href="https://ezgif.com/mng-maker" title="Animated MNG maker">MNG tools</a></li><li><a href="https://ezgif.com/flif-maker" title="Animated FLIF maker">FLIF tools</a></li></ul></div></div></footer><iframe name="__tcfapiLocator" style="display: none;" src="./independent3_files/saved_resource.html"></iframe><noscript><div style="display:none"><img src="//pixel.quantserve.com/pixel/p-XD4Yb4bFmpVdn.gif" height="1" width="1" alt="Quantcast"/></div></noscript><!-- s:4 --></body></html>

@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.BodyImage;
 import city.cs.engine.BoxShape;
 import city.cs.engine.StaticBody;
 import city.cs.engine.World;
@@ -16,6 +17,7 @@ public class CheckPoint extends StaticBody {
         super(world, obstacleSize);
         setFillColor(Color.green);
         setLineColor(Color.green);
+
     }
 
     public Vec2 getCheckpointLocation() {

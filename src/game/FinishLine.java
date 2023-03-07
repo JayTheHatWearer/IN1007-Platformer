@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.BodyImage;
 import city.cs.engine.BoxShape;
 import city.cs.engine.StaticBody;
 import city.cs.engine.World;

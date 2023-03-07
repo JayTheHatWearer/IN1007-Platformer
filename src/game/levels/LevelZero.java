@@ -30,16 +30,16 @@ public class LevelZero extends World {
 
         Platform aKey = new Platform(this, new BoxShape(2.5f, 2.5f));
         aKey.setPosition(new Vec2(-3.5f,2.5f));
-        aKey.SetType("special");
+        aKey.SetType("special", 0);
         aKey.addImage(new BodyImage("data/img/keys/A.gif", 5));
 
         Platform dKey = new Platform(this, new BoxShape(2.5f, 2.5f));
         dKey.setPosition(new Vec2(3.5f,2.5f));
-        dKey.SetType("special");
+        dKey.SetType("special", 0);
         dKey.addImage(new BodyImage("data/img/keys/D.gif", 5));
 
         FinishLine finishLine = new FinishLine(this, new BoxShape(2.5f, 1f));
-        finishLine.setPosition(new Vec2(12.5f, -11f));
+        finishLine.setPosition(new Vec2(15f, -8f));
         finishLine.setNextLevel(1);
 
         CreateBoundary();
@@ -48,13 +48,13 @@ public class LevelZero extends World {
 
         private void CreateBoundary() {
 
-            Platform groundOne = new Platform(this, new BoxShape(10f, 1f));
-            groundOne.SetType("ground");
-            groundOne.setPosition(new Vec2(-10f, -11f));
+            Platform groundOne = new Platform(this, new BoxShape(10f, 1.5f));
+            groundOne.SetType("ground",0);
+            groundOne.setPosition(new Vec2(-10f, -10.5f));
 
-            Platform groundTwo = new Platform(this, new BoxShape(10f, 1f));
-            groundTwo.SetType("ground");
-            groundTwo.setPosition(new Vec2(10f, -11f));
+            Platform groundTwo = new Platform(this, new BoxShape(10f, 1.5f));
+            groundTwo.SetType("ground",0);
+            groundTwo.setPosition(new Vec2(10f, -10.5f));
 
             Platform leftWall = new Platform(this, new BoxShape(1f, 12));
             leftWall.setPosition(new Vec2(-21f, 0f));

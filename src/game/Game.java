@@ -44,7 +44,7 @@ public class Game {
 
         //optional: uncomment this to make a debugging view
         //  JFrame debugView = new DebugViewer(world, 500, 500);
-        // view.setGridResolution(1);
+        view.setGridResolution(1);
 
         view.requestFocus();
     }
