@@ -1,9 +1,10 @@
 package game.levels;
 
-import city.cs.engine.BoxShape;
-import city.cs.engine.World;
+import city.cs.engine.*;
 import game.*;
 import org.jbox2d.common.Vec2;
+
+import java.awt.*;
 
 public class LevelOne extends World {
     private final Student student;
@@ -20,6 +21,8 @@ public class LevelOne extends World {
         student.addCollisionListener(obstacleMain);
 
         this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
+
+        Game.getView().setBounds(-20, 28);
 ;
     }
 
@@ -29,7 +32,7 @@ public class LevelOne extends World {
 
     private void Populate() {
         // create the containers
-        Platform[] defaultContainers = new Platform[27];
+        Platform[] defaultContainers = new Platform[49];
         defaultContainers[0] = new Platform(this, new BoxShape(1.5f, 1.5f));
         defaultContainers[1] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[2] = new Platform(this, new BoxShape(1.5f ,1.5f));
@@ -57,7 +60,28 @@ public class LevelOne extends World {
         defaultContainers[24] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[25] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[26] = new Platform(this, new BoxShape(1.5f ,1.5f));
-
+        defaultContainers[27] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[28] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[29] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[30] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[31] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[32] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[33] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[34] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[35] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[36] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[37] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[38] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[39] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[40] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[41] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[42] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[43] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[44] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[45] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[46] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[47] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[48] = new Platform(this, new BoxShape(1.5f ,1.5f));
 
         defaultContainers[0].setPosition(new Vec2(-18.5f, 4.5f));
         defaultContainers[0].SetType("platform-edge-right-single", 0);
@@ -81,7 +105,7 @@ public class LevelOne extends World {
         defaultContainers[6].SetType("ground", 13);
 
         defaultContainers[7].setPosition(new Vec2(5.5f, -10.5f));
-        defaultContainers[7].SetType("single", 1);
+        defaultContainers[7].SetType("ground", 12);
 
         defaultContainers[8].setPosition(new Vec2(-12.5f, -1.5f));
         defaultContainers[8].SetType("independent", 1);
@@ -139,6 +163,72 @@ public class LevelOne extends World {
 
         defaultContainers[26].setPosition(new Vec2(20.5f,10.5f));
         defaultContainers[26].SetType("roof", 8);
+
+        defaultContainers[27].setPosition(new Vec2(23.5f,10.5f));
+        defaultContainers[27].SetType("roof", 9);
+
+        defaultContainers[28].setPosition(new Vec2(26.5f,10.5f));
+        defaultContainers[28].SetType("roof", 14);
+
+        defaultContainers[29].setPosition(new Vec2(26.5f,7.5f));
+        defaultContainers[29].SetType("right-wall", 1);
+
+        defaultContainers[30].setPosition(new Vec2(26.5f,4.5f));
+        defaultContainers[30].SetType("right-wall", 2);
+
+        defaultContainers[31].setPosition(new Vec2(26.5f,1.5f));
+        defaultContainers[31].SetType("right-wall", 3);
+
+        defaultContainers[32].setPosition(new Vec2(26.5f,-1.5f));
+        defaultContainers[32].SetType("right-wall", 4);
+
+        defaultContainers[33].setPosition(new Vec2(26.5f,-4.5f));
+        defaultContainers[33].SetType("ground", 11);
+
+        defaultContainers[34].setPosition(new Vec2(23.5f,-4.5f));
+        defaultContainers[34].SetType("ground", 1);
+
+        defaultContainers[35].setPosition(new Vec2(20.5f,-4.5f));
+        defaultContainers[35].SetType("ground", 2);
+
+        defaultContainers[36].setPosition(new Vec2(17.5f,-4.5f));
+        defaultContainers[36].SetType("corner", 1);
+
+        defaultContainers[37].setPosition(new Vec2(17.5f,-7.5f));
+        defaultContainers[37].SetType("right-wall", 1);
+
+        defaultContainers[38].setPosition(new Vec2(17.5f,-10.5f));
+        defaultContainers[38].SetType("ground", 11);
+
+        defaultContainers[39].setPosition(new Vec2(14.5f,-10.5f));
+        defaultContainers[39].SetType("ground", 3);
+
+        defaultContainers[40].setPosition(new Vec2(11.5f,-10.5f));
+        defaultContainers[40].SetType("ground", 4);
+
+        defaultContainers[41].setPosition(new Vec2(8.5f,-10.5f));
+        defaultContainers[41].SetType("ground", 5);
+
+        defaultContainers[42].setPosition(new Vec2(17.5f,-13.5f));
+        defaultContainers[42].SetType("mid-wall", 2);
+
+        defaultContainers[43].setPosition(new Vec2(20.5f, -7.5f));
+        defaultContainers[43].SetType("blank", 0);
+
+        defaultContainers[44].setPosition(new Vec2(23.5f, -7.5f));
+        defaultContainers[44].SetType("blank", 0);
+
+        defaultContainers[45].setPosition(new Vec2(26.5f, -7.5f));
+        defaultContainers[45].SetType("blank", 0);
+
+        defaultContainers[46].setPosition(new Vec2(20.5f, -10.5f));
+        defaultContainers[46].SetType("blank", 0);
+
+        defaultContainers[47].setPosition(new Vec2(23.5f, -10.5f));
+        defaultContainers[47].SetType("blank", 0);
+
+        defaultContainers[48].setPosition(new Vec2(26.5f, -10.5f));
+        defaultContainers[48].SetType("blank", 0);
 
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));

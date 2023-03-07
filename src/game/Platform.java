@@ -11,6 +11,11 @@ public class Platform extends StaticBody {
     private static final String SINGLE_IMAGE_PATH = "data/img/tiles/single/single";
     private static final String INDEPENDENT_IMAGE_PATH = "data/img/tiles/independent/independent";
     private static final String ROOF_IMAGE_PATH = "data/img/tiles/roof/roof";
+    private static final String RIGHT_WALL_IMAGE_PATH = "data/img/tiles/right-wall/right-wall";
+    private static final String CORNER_IMAGE_PATH = "data/img/tiles/corners/corner";
+    private static final String MID_WALL_IMAGE_PATH = "data/img/tiles/mid-wall/mid-wall";
+    private static final String BLANK_IMAGE_PATH = "data/img/tiles/blank";
+
 
     public Platform(World world, BoxShape obstacleSize) {
         super(world, obstacleSize);
@@ -29,6 +34,11 @@ public class Platform extends StaticBody {
             case "single" -> addImage(new BodyImage(SINGLE_IMAGE_PATH + variation + ".png", 3));
             case "independent" -> addImage(new BodyImage(INDEPENDENT_IMAGE_PATH + variation + ".png", 3));
             case "roof" -> addImage(new BodyImage(ROOF_IMAGE_PATH + variation + ".png", 3));
+            case "right-wall" -> addImage(new BodyImage(RIGHT_WALL_IMAGE_PATH + variation + ".png", 3));
+            case "corner" -> addImage(new BodyImage(CORNER_IMAGE_PATH + variation + ".png", 3));
+            case "mid-wall" -> addImage(new BodyImage(MID_WALL_IMAGE_PATH + variation + ".png", 3));
+            case "blank" -> addImage(new BodyImage(BLANK_IMAGE_PATH + ".png", 3));
+
         }
     }
 }

@@ -11,6 +11,7 @@ public class GameView extends UserView {
 
     private int minX = -20;
     private int maxX = 20;
+    private int imageWidth = 800;
 
     private Image background;
 
@@ -34,7 +35,7 @@ public class GameView extends UserView {
 
     @Override
     protected void paintBackground(Graphics2D g) {
-        g.drawImage(background,0,0,this);
+        g.drawImage(background,(int) (0 -  this.getCentre().x * 20), (int) this.getCentre().y, imageWidth, 480,  this);
     }
 
     public void setBounds(int newMin, int newMax) {
