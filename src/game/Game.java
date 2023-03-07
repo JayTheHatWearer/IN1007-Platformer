@@ -21,9 +21,8 @@ public class Game {
 
         mainLevel = new LevelManager();
 
-        view = new GameView(initLevel, 500, 500);
+        view = new GameView(initLevel, 800, 480);
         mainLevel.loadLevel(view, 0);
-
 
         GiveFocus focusChecker = new GiveFocus(view);
         view.addMouseListener(focusChecker);
@@ -45,7 +44,7 @@ public class Game {
 
         //optional: uncomment this to make a debugging view
         //  JFrame debugView = new DebugViewer(world, 500, 500);
-
+        // view.setGridResolution(1);
 
         view.requestFocus();
     }

@@ -1,8 +1,9 @@
-package obstacle;
+package game;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import game.*;
+import obstacle.Obstacle;
 import org.jbox2d.common.Vec2;
 
 import java.awt.*;

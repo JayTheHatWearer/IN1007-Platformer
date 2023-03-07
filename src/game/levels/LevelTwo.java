@@ -2,11 +2,7 @@ package game.levels;
 
 import city.cs.engine.BoxShape;
 import city.cs.engine.World;
-import game.FinishLine;
-import game.Flipper;
-import game.Platform;
-import game.Student;
-import obstacle.CollisonHandler;
+import game.*;
 import org.jbox2d.common.Vec2;
 
 public class LevelTwo extends World {
@@ -22,6 +18,8 @@ public class LevelTwo extends World {
         student.setReturnPosition(new Vec2(-9f, -9f));
         CollisonHandler obstacleMain = new CollisonHandler(student);
         student.addCollisionListener(obstacleMain);
+
+        this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
     }
 
     private void Populate() {

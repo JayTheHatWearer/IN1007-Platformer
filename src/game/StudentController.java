@@ -19,10 +19,10 @@ public class StudentController implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        if (code == KeyEvent.VK_1) {
+        if (code == KeyEvent.VK_A) {
             student.startWalking(-5);
             student.setAngleDegrees(-360);
-        } else if (code == KeyEvent.VK_2) {
+        } else if (code == KeyEvent.VK_D) {
             student.startWalking(5);
             student.setAngleDegrees(360);
         } else if (code == KeyEvent.VK_SPACE) {

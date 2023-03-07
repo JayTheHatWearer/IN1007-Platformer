@@ -6,7 +6,7 @@ import game.CheckPoint;
 import game.Flipper;
 import game.Platform;
 import game.Student;
-import obstacle.CollisonHandler;
+import game.CollisonHandler;
 import org.jbox2d.common.Vec2;
 
 public class LevelThree extends World {
