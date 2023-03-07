@@ -7,23 +7,25 @@ import game.*;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class LevelZero extends World {
     private final Student student;
+    private Tracker trackerMain;
+
     public LevelZero() {
         super();
         //init ground
         Populate();
-
-
         //make a character (with an overlaid image)
         student = new Student(this);
         student.setPosition(new Vec2(-9f, -9f));
         student.setReturnPosition(new Vec2(-9f, -9f));
         CollisonHandler obstacleMain = new CollisonHandler(student);
         student.addCollisionListener(obstacleMain);
+        trackerMain = new Tracker(Game.getView(), this.getStudent());
+        this.addStepListener(trackerMain);
 
-        this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
     }
 
     private void Populate() {
@@ -38,11 +40,12 @@ public class LevelZero extends World {
         dKey.SetType("special", 0);
         dKey.addImage(new BodyImage("data/img/keys/D.gif", 5));
 
-        FinishLine finishLine = new FinishLine(this, new BoxShape(2.5f, 1f));
-        finishLine.setPosition(new Vec2(15f, -8f));
+        FinishLine finishLine = new FinishLine(this, new BoxShape(0.66f, 2f));
+        finishLine.setPosition(new Vec2(15f, -6f));
         finishLine.setNextLevel(1);
 
         CreateBoundary();
+
 
     }
 
@@ -56,9 +59,6 @@ public class LevelZero extends World {
             groundTwo.SetType("ground",0);
             groundTwo.setPosition(new Vec2(10f, -10.5f));
 
-            Platform leftWall = new Platform(this, new BoxShape(1f, 12));
-            leftWall.setPosition(new Vec2(-21f, 0f));
-
             Platform rightWall = new Platform(this, new BoxShape(1f, 12));
             rightWall.setPosition(new Vec2(21f, 0f));
 
@@ -69,4 +69,8 @@ public class LevelZero extends World {
     public Student getStudent() {
         return student;
     }
+
+    public Tracker getTracker() { return trackerMain;}
+
+
 }

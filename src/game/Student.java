@@ -11,7 +11,7 @@ public class Student extends Walker {
     private boolean isFlipped;
     private  Vec2 lastSaveLocation;
 
-    private static final Shape studentShape = new BoxShape(1, 1.5f);
+    private static final Shape studentShape = new BoxShape(1, 1.25f);
 
     public Student(World world) {
         super(world, studentShape);
@@ -71,7 +71,7 @@ public class Student extends Walker {
 
         if (newState != null && !newState.equals(currentImage)) {
             this.removeAllImages();
-            this.addImage(new BodyImage("data/sprites/pc/pc-" + newState + ".gif", 3));
+            this.addImage(new BodyImage("data/sprites/pc/pc-" + newState + ".gif", 2.5f));
             currentImage = newState;
         }
     }

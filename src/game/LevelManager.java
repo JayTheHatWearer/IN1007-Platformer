@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.StepListener;
 import game.levels.LevelOne;
 import game.levels.LevelThree;
 import game.levels.LevelTwo;
@@ -14,6 +15,7 @@ public class LevelManager {
     }
 
     public void loadLevel(GameView view, int levelToBe) {
+        view.getWorld().stop();
         switch (levelToBe) {
             case 0 -> {
                 LevelZero worldZero = new LevelZero();

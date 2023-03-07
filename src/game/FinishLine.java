@@ -16,6 +16,7 @@ public class FinishLine extends StaticBody {
         super(world, obstacleSize);
         setFillColor(Color.green);
         setLineColor(Color.green);
+        addImage(new BodyImage("data/sprites/portal-blue.gif", 4));
     }
 
     public int getNextLevel() {

@@ -13,6 +13,8 @@ public class Tracker implements StepListener {
     }
     public void preStep(StepEvent e) {}
     public void postStep(StepEvent e) {
+        view.getGameViewCentre(student.getPosition());
         student.stateManager(student.getLinearVelocity());
+
     }
 }

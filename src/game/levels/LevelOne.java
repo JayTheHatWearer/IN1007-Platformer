@@ -20,7 +20,7 @@ public class LevelOne extends World {
         student.addCollisionListener(obstacleMain);
 
         this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
-        student.setAngle(-180);
+;
     }
 
     private void CreateBoundary() {
@@ -29,7 +29,7 @@ public class LevelOne extends World {
 
     private void Populate() {
         // create the containers
-        Platform[] defaultContainers = new Platform[16];
+        Platform[] defaultContainers = new Platform[27];
         defaultContainers[0] = new Platform(this, new BoxShape(1.5f, 1.5f));
         defaultContainers[1] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[2] = new Platform(this, new BoxShape(1.5f ,1.5f));
@@ -46,6 +46,17 @@ public class LevelOne extends World {
         defaultContainers[13] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[14] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[15] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[16] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[17] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[18] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[19] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[20] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[21] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[22] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[23] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[24] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[25] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[26] = new Platform(this, new BoxShape(1.5f ,1.5f));
 
 
         defaultContainers[0].setPosition(new Vec2(-18.5f, 4.5f));
@@ -93,9 +104,41 @@ public class LevelOne extends World {
         defaultContainers[14].setPosition(new Vec2(-9.5f, 10.5f));
         defaultContainers[14].SetType("roof", 4);
 
-        defaultContainers[15].setPosition(new Vec2(14f, -9f));
+        defaultContainers[15].setPosition(new Vec2(-6.5f, 10.5f));
+        defaultContainers[15].SetType("roof", 14);
 
+        defaultContainers[16].setPosition(new Vec2(-6.5f,7.5f));
+        defaultContainers[16].SetType("single", 2);
 
+        defaultContainers[17].setPosition(new Vec2(-3.5f,10.5f));
+        defaultContainers[17].SetType("roof", 0);
+
+        defaultContainers[18].setPosition(new Vec2(-3.5f,7.5f));
+        defaultContainers[18].SetType("single", 4);
+
+        defaultContainers[19].setPosition(new Vec2(-0.5f,10.5f));
+        defaultContainers[19].SetType("roof", 1);
+
+        defaultContainers[20].setPosition(new Vec2(2.5f,10.5f));
+        defaultContainers[20].SetType("roof", 2);
+
+        defaultContainers[21].setPosition(new Vec2(5.5f,10.5f));
+        defaultContainers[21].SetType("roof", 3);
+
+        defaultContainers[22].setPosition(new Vec2(8.5f,10.5f));
+        defaultContainers[22].SetType("roof", 4);
+
+        defaultContainers[23].setPosition(new Vec2(11.5f,10.5f));
+        defaultContainers[23].SetType("roof", 5);
+
+        defaultContainers[24].setPosition(new Vec2(14.5f,10.5f));
+        defaultContainers[24].SetType("roof", 6);
+
+        defaultContainers[25].setPosition(new Vec2(17.5f,10.5f));
+        defaultContainers[25].SetType("roof", 7);
+
+        defaultContainers[26].setPosition(new Vec2(20.5f,10.5f));
+        defaultContainers[26].SetType("roof", 8);
 
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));

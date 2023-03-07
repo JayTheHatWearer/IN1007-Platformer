@@ -1,5 +1,6 @@
 package game;
 
+import city.cs.engine.DebugViewer;
 import game.levels.LevelZero;
 
 import javax.swing.*;
@@ -43,7 +44,7 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-        //  JFrame debugView = new DebugViewer(world, 500, 500);
+        // JFrame debugView = new DebugViewer(view.getWorld(), 500, 500);
         view.setGridResolution(1);
 
         view.requestFocus();
