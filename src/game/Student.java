@@ -71,7 +71,12 @@ public class Student extends Walker {
 
         if (newState != null && !newState.equals(currentImage)) {
             this.removeAllImages();
-            this.addImage(new BodyImage("data/sprites/pc/pc-" + newState + ".gif", 2.5f));
+            if (!isFlipped) {
+                this.addImage(new BodyImage("data/sprites/pc/pc-" + newState + ".gif", 2.5f));
+            } else {
+                this.addImage(new BodyImage("data/sprites/pc/anti-pc-" + newState + ".gif", 2.5f));
+            }
+
             currentImage = newState;
         }
     }

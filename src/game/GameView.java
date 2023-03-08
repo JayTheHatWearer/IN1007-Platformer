@@ -35,11 +35,15 @@ public class GameView extends UserView {
 
     @Override
     protected void paintBackground(Graphics2D g) {
-        g.drawImage(background,(int) (0 -  this.getCentre().x * 20), (int) this.getCentre().y, imageWidth, 480,  this);
+        g.drawImage(background,(int) (0 -  this.getCentre().x * 20), (int) this.getCentre().y, this);
     }
 
     public void setBounds(int newMin, int newMax) {
         minX = newMin;
         maxX = newMax;
+    }
+
+    public void setBackground(Image newBG) {
+        background = newBG;
     }
 }

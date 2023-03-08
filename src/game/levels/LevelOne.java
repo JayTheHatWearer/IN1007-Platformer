@@ -4,6 +4,7 @@ import city.cs.engine.*;
 import game.*;
 import org.jbox2d.common.Vec2;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class LevelOne extends World {
@@ -23,6 +24,8 @@ public class LevelOne extends World {
         this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
 
         Game.getView().setBounds(-20, 28);
+        Image background1 = new ImageIcon("data/img/level2-bg.png").getImage();
+        Game.getView().setBackground(background1);
 ;
     }
 
@@ -32,7 +35,7 @@ public class LevelOne extends World {
 
     private void Populate() {
         // create the containers
-        Platform[] defaultContainers = new Platform[49];
+        Platform[] defaultContainers = new Platform[53];
         defaultContainers[0] = new Platform(this, new BoxShape(1.5f, 1.5f));
         defaultContainers[1] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[2] = new Platform(this, new BoxShape(1.5f ,1.5f));
@@ -82,6 +85,10 @@ public class LevelOne extends World {
         defaultContainers[46] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[47] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[48] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[49] = new Platform(this, new BoxShape(1.5f ,1.5f));
+
+        defaultContainers[50] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[51] = new Platform(this, new BoxShape(1.5f ,1.5f));
 
         defaultContainers[0].setPosition(new Vec2(-18.5f, 4.5f));
         defaultContainers[0].SetType("platform-edge-right-single", 0);
@@ -229,6 +236,19 @@ public class LevelOne extends World {
 
         defaultContainers[48].setPosition(new Vec2(26.5f, -10.5f));
         defaultContainers[48].SetType("blank", 0);
+
+        defaultContainers[49].setPosition(new Vec2(17.5f,1.5f));
+        defaultContainers[49].SetType("corner", 2);
+
+        defaultContainers[50].setPosition(new Vec2(17.5f,-1.5f));
+        defaultContainers[50].SetType("mid-wall", 2);
+
+        defaultContainers[51].setPosition(new Vec2(17.5f,-1.5f));
+        defaultContainers[51].SetType("corner", 3);
+
+
+        Flipper flipperOne= new Flipper (this);
+        flipperOne.setPosition(new Vec2(14.5f, -4.5f));
 
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
