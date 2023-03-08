@@ -2,7 +2,6 @@ package game;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import game.*;
 import obstacle.Obstacle;
 import org.jbox2d.common.Vec2;
 
@@ -27,6 +26,7 @@ public class CollisonHandler implements CollisionListener {
             e.getOtherBody().setLineColor(new Color(0, 100, 0));
         } else if (e.getOtherBody() instanceof Flipper) {
             student.setFlipped((!student.getFlipped()));
+            student.stateManager(student.getLinearVelocity());
             e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof FinishLine) {
             e.getOtherBody().destroy();

@@ -2,6 +2,7 @@ package game.levels;
 
 import city.cs.engine.*;
 import game.*;
+import obstacle.Obstacle;
 import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
@@ -20,13 +21,13 @@ public class LevelOne extends World {
         student.setReturnPosition(new Vec2(-9f, -9f));
         CollisonHandler obstacleMain = new CollisonHandler(student);
         student.addCollisionListener(obstacleMain);
+        student.setReturnPosition(new Vec2(-18f, 6f));
 
         this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
 
         Game.getView().setBounds(-20, 28);
         Image background1 = new ImageIcon("data/img/level2-bg.png").getImage();
         Game.getView().setBackground(background1);
-;
     }
 
     private void CreateBoundary() {
@@ -35,7 +36,7 @@ public class LevelOne extends World {
 
     private void Populate() {
         // create the containers
-        Platform[] defaultContainers = new Platform[53];
+        Platform[] defaultContainers = new Platform[61];
         defaultContainers[0] = new Platform(this, new BoxShape(1.5f, 1.5f));
         defaultContainers[1] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[2] = new Platform(this, new BoxShape(1.5f ,1.5f));
@@ -89,6 +90,17 @@ public class LevelOne extends World {
 
         defaultContainers[50] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[51] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[52] = new Platform(this, new BoxShape(1.5f ,1.5f));
+
+        defaultContainers[53] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[54] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[55] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[56] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[57] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[58] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[59] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[60] = new Platform(this, new BoxShape(1.5f ,1.5f));
+
 
         defaultContainers[0].setPosition(new Vec2(-18.5f, 4.5f));
         defaultContainers[0].SetType("platform-edge-right-single", 0);
@@ -240,15 +252,48 @@ public class LevelOne extends World {
         defaultContainers[49].setPosition(new Vec2(17.5f,1.5f));
         defaultContainers[49].SetType("corner", 2);
 
-        defaultContainers[50].setPosition(new Vec2(17.5f,-1.5f));
-        defaultContainers[50].SetType("mid-wall", 2);
+        defaultContainers[50].setPosition(new Vec2(14.5f,1.5f));
+        defaultContainers[50].SetType("candg", 1);
 
-        defaultContainers[51].setPosition(new Vec2(17.5f,-1.5f));
+        defaultContainers[51].setPosition(new Vec2(11.5f,1.5f));
         defaultContainers[51].SetType("corner", 3);
 
+        defaultContainers[52].setPosition(new Vec2(17.5f,-1.5f));
+        defaultContainers[52].SetType("mid-wall", 2);
 
-        Flipper flipperOne= new Flipper (this);
+        defaultContainers[53].setPosition(new Vec2(11.5f,-1.5f));
+        defaultContainers[53].SetType("single", 4);
+
+        defaultContainers[54].setPosition(new Vec2(8.5f,-1.5f));
+        defaultContainers[54].SetType("single", 3);
+
+        defaultContainers[55].setPosition(new Vec2(5.5f,-1.5f));
+        defaultContainers[55].SetType("single", 2);
+
+        defaultContainers[56].setPosition(new Vec2(8.5f,1.5f));
+        defaultContainers[56].SetType("blank", 0);
+
+        defaultContainers[57].setPosition(new Vec2(5.5f,1.5f));
+        defaultContainers[57].SetType("single", 5);
+
+        defaultContainers[58].setPosition(new Vec2(5.5f,4.5f));
+        defaultContainers[58].SetType("single", 6);
+
+        defaultContainers[59].setPosition(new Vec2(8.5f,4.5f));
+        defaultContainers[59].SetType("single", 7);
+
+        defaultContainers[60].setPosition(new Vec2(11.5f,4.5f));
+        defaultContainers[60].SetType("single", 8);
+
+        Flipper flipperOne = new Flipper (this);
         flipperOne.setPosition(new Vec2(14.5f, -4.5f));
+
+        Flipper flipperTwo = new Flipper (this);
+        flipperTwo.setPosition(new Vec2(17.5f, 7.5f));
+
+
+        Obstacle obstacleOne = new Obstacle(this, new BoxShape(3,1));
+        obstacleOne.setPosition(new Vec2(-0.5f,-13.5f));
 
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
