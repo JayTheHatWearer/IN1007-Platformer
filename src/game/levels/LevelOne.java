@@ -23,6 +23,12 @@ public class LevelOne extends World {
         student.addCollisionListener(obstacleMain);
         student.setReturnPosition(new Vec2(-18f, 6f));
 
+        Critter critterOne = new Critter(this);
+        critterOne.setPosition(new Vec2(19f, -1.5f));
+        CritterController critterOneController = new CritterController(critterOne);
+        critterOne.addCollisionListener(critterOneController);
+
+
         this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
 
         Game.getView().setBounds(-20, 28);

@@ -43,4 +43,9 @@ public class Platform extends StaticBody {
 
         }
     }
+
+    public String getType() {
+        return type
+    }
+
 }

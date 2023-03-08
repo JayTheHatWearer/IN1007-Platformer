@@ -1,11 +1,14 @@
 package game;
 
+import city.cs.engine.DebugViewer;
 import city.cs.engine.StepListener;
 import game.levels.LevelOne;
 import game.levels.LevelThree;
 import game.levels.LevelTwo;
 import game.levels.LevelZero;
 import org.jetbrains.annotations.NotNull;
+
+import javax.swing.*;
 
 public class LevelManager {
     int levelNumber;
@@ -30,6 +33,7 @@ public class LevelManager {
                 StudentController controllerOne = new StudentController(worldOne.getStudent());
                 view.addKeyListener(controllerOne);
                 worldOne.start();
+                JFrame debugView = new DebugViewer(worldOne, 500, 500);
             }
 
             case 2 -> {
