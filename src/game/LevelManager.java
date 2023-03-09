@@ -1,17 +1,16 @@
 package game;
 
-import city.cs.engine.DebugViewer;
-import city.cs.engine.StepListener;
 import game.levels.LevelOne;
 import game.levels.LevelThree;
 import game.levels.LevelTwo;
 import game.levels.LevelZero;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
+import java.util.ArrayList;
 
 public class LevelManager {
     int levelNumber;
+    Student currentStudent;
 
     public LevelManager() {
 
@@ -22,32 +21,44 @@ public class LevelManager {
         switch (levelToBe) {
             case 0 -> {
                 LevelZero worldZero = new LevelZero();
+
+                currentStudent = worldZero.getStudent();
+
                 view.setWorld(worldZero);
-                StudentController controller = new StudentController(worldZero.getStudent());
+                StudentController controller = new StudentController(currentStudent);
                 view.addKeyListener(controller);
                 worldZero.start();
             }
             case 1 -> {
                 LevelOne worldOne = new LevelOne();
+
+                currentStudent = worldOne.getStudent();
+
                 view.setWorld(worldOne);
-                StudentController controllerOne = new StudentController(worldOne.getStudent());
+                StudentController controllerOne = new StudentController(currentStudent);
                 view.addKeyListener(controllerOne);
                 worldOne.start();
-                JFrame debugView = new DebugViewer(worldOne, 500, 500);
+                // JFrame debugView = new DebugViewer(worldOne, 500, 500);
             }
 
             case 2 -> {
                 LevelTwo worldTwo = new LevelTwo();
+
+                currentStudent = worldTwo.getStudent();
+
                 view.setWorld(worldTwo);
-                StudentController controllerTwo = new StudentController(worldTwo.getStudent());
+                StudentController controllerTwo = new StudentController(currentStudent);
                 view.addKeyListener(controllerTwo);
                 worldTwo.start();
             }
 
             case 3 -> {
                 LevelThree worldThree = new LevelThree();
+
+                currentStudent = worldThree.getStudent();
+
                 view.setWorld(worldThree);
-                StudentController controllerThree = new StudentController(worldThree.getStudent());
+                StudentController controllerThree = new StudentController(currentStudent);
                 view.addKeyListener(controllerThree);
                 worldThree.start();
             }
@@ -59,9 +70,20 @@ public class LevelManager {
     }
 
     public void setCurrentLevel(int newLevelNumber) {
-        unloadLevel(Game.getView());
-        loadLevel(Game.getView(), newLevelNumber);
         levelNumber = newLevelNumber;
+
+        unloadLevel(Game.getView());
+        loadLevel(Game.getView(), levelNumber);
     }
 
+    public void ResetLevel() {
+
+        ArrayList<Flipper> collectedFlippers = currentStudent.getCollectedFlippers();
+        collectedFlippers.stream().filter(n -> !n.getState()).forEach(n -> n.setState(false));
+        currentStudent.setCollectedFlippers(collectedFlippers);
+    }
+
+    public void DeadStudent() {
+        setCurrentLevel(1);
+    }
 }

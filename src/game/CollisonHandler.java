@@ -3,8 +3,6 @@ package game;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import obstacle.Obstacle;
-import org.jbox2d.common.Vec2;
-
 import java.awt.*;
 
 public class CollisonHandler implements CollisionListener {
@@ -17,17 +15,17 @@ public class CollisonHandler implements CollisionListener {
     @Override
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Obstacle) {
-            student.setFlipped(false);
-            student.returnStudent();
-            student.setLinearVelocity(new Vec2(0,0));
+            student.Respawn();
         } else if (e.getOtherBody() instanceof CheckPoint) {
             student.setReturnPosition(((CheckPoint) e.getOtherBody()).getCheckpointLocation());
             e.getOtherBody().setFillColor(new Color(0, 100, 0));
             e.getOtherBody().setLineColor(new Color(0, 100, 0));
         } else if (e.getOtherBody() instanceof Flipper) {
+
             student.setFlipped((!student.getFlipped()));
             student.stateManager(student.getLinearVelocity());
-            e.getOtherBody().destroy();
+            student.addCollectedFlippers((Flipper) e.getOtherBody());
+
         } else if (e.getOtherBody() instanceof FinishLine) {
             e.getOtherBody().destroy();
             student.destroy();

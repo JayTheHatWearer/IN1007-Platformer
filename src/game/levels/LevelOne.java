@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LevelOne extends World {
+
+
     private final Student student;
     public LevelOne() {
         super();
@@ -24,20 +26,16 @@ public class LevelOne extends World {
         student.setReturnPosition(new Vec2(-18f, 6f));
 
         Critter critterOne = new Critter(this);
-        critterOne.setPosition(new Vec2(19f, -1.5f));
+        critterOne.setPosition(new Vec2(21.5f, -1.5f));
         CritterController critterOneController = new CritterController(critterOne);
         critterOne.addCollisionListener(critterOneController);
 
 
-        this.addStepListener(new Tracker(Game.getView(), this.getStudent()));
+        this.addStepListener(new Tracker(Game.getView(), student));
 
         Game.getView().setBounds(-20, 28);
         Image background1 = new ImageIcon("data/img/level2-bg.png").getImage();
         Game.getView().setBackground(background1);
-    }
-
-    private void CreateBoundary() {
-
     }
 
     private void Populate() {
@@ -206,6 +204,7 @@ public class LevelOne extends World {
 
         defaultContainers[32].setPosition(new Vec2(26.5f,-1.5f));
         defaultContainers[32].SetType("right-wall", 4);
+        defaultContainers[32].setBoundary(true);
 
         defaultContainers[33].setPosition(new Vec2(26.5f,-4.5f));
         defaultContainers[33].SetType("ground", 11);
@@ -236,6 +235,7 @@ public class LevelOne extends World {
 
         defaultContainers[42].setPosition(new Vec2(17.5f,-13.5f));
         defaultContainers[42].SetType("mid-wall", 2);
+        defaultContainers[42].setBoundary(true);
 
         defaultContainers[43].setPosition(new Vec2(20.5f, -7.5f));
         defaultContainers[43].SetType("blank", 0);
@@ -266,6 +266,7 @@ public class LevelOne extends World {
 
         defaultContainers[52].setPosition(new Vec2(17.5f,-1.5f));
         defaultContainers[52].SetType("mid-wall", 2);
+        defaultContainers[52].setBoundary(true);
 
         defaultContainers[53].setPosition(new Vec2(11.5f,-1.5f));
         defaultContainers[53].SetType("single", 4);
@@ -291,25 +292,23 @@ public class LevelOne extends World {
         defaultContainers[60].setPosition(new Vec2(11.5f,4.5f));
         defaultContainers[60].SetType("single", 8);
 
-        Flipper flipperOne = new Flipper (this);
-        flipperOne.setPosition(new Vec2(14.5f, -4.5f));
 
-        Flipper flipperTwo = new Flipper (this);
-        flipperTwo.setPosition(new Vec2(17.5f, 7.5f));
 
+        Flipper flipperOne = new Flipper (this, new Vec2(14.5f, -4.5f));
+        Flipper flipperTwo = new Flipper (this, new Vec2(17.5f, 7.5f));
 
         Obstacle obstacleOne = new Obstacle(this, new BoxShape(3,1));
-        obstacleOne.setPosition(new Vec2(-0.5f,-13.5f));
+        obstacleOne.setPosition(new Vec2(1f,-13.5f));
 
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
         finishLine.setPosition(new Vec2(9f, -12f));
         finishLine.setNextLevel(2);
 
-        CreateBoundary();
     }
 
     public Student getStudent() {
         return student;
     }
+
 }

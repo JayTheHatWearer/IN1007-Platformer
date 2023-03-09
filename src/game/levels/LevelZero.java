@@ -6,9 +6,6 @@ import city.cs.engine.World;
 import game.*;
 import org.jbox2d.common.Vec2;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class LevelZero extends World {
     private final Student student;
     private Tracker trackerMain;
@@ -42,11 +39,9 @@ public class LevelZero extends World {
 
         FinishLine finishLine = new FinishLine(this, new BoxShape(0.66f, 2f));
         finishLine.setPosition(new Vec2(15f, -6f));
-        finishLine.setNextLevel(1);
-
         CreateBoundary();
 
-
+        finishLine.setNextLevel(1);
     }
 
         private void CreateBoundary() {

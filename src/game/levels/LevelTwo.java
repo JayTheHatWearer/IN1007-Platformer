@@ -64,9 +64,6 @@ public class LevelTwo extends World {
         Platform containerEight = new Platform(this, new BoxShape(0.5f, 10f));
         containerEight.setPosition(new Vec2(6.5f, 2f));
 
-        Flipper newFlipper = new Flipper(this);
-        newFlipper.setPosition(new Vec2(9f, -6f));
-
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
         finishLine.setPosition(new Vec2(9f, 12f));
         finishLine.setNextLevel(3);

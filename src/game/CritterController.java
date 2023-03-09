@@ -2,15 +2,11 @@ package game;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import obstacle.Obstacle;
-import org.jbox2d.common.Vec2;
-
-import java.awt.*;
 
 
 public class CritterController implements CollisionListener {
 
-    private Critter collidedCritter;
+    private final Critter collidedCritter;
 
     public CritterController(Critter c) {
         collidedCritter = c;
@@ -19,8 +15,16 @@ public class CritterController implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent collisionEvent) {
-        if (collidedCritter.getLinearVelocity().x == 0) {
-        collidedCritter.SwitchDirection();
+
+        if (collisionEvent.getOtherBody() instanceof Platform) {
+            Platform targetPlatform = (Platform) collisionEvent.getOtherBody();
+            if (targetPlatform.getBoundary()) {
+                collidedCritter.SwitchDirection();
+            }
+        } else if (collisionEvent.getOtherBody() instanceof Student) {
+            ((Student) collisionEvent.getOtherBody()).Respawn();
         }
+
+
     }
 }

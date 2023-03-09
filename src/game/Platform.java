@@ -17,6 +17,9 @@ public class Platform extends StaticBody {
     private static final String CEILING_AND_GROUND_IMAGE_PATH = "data/img/tiles/candg/candg";
     private static final String BLANK_IMAGE_PATH = "data/img/tiles/blank";
 
+    private boolean isBoundary;
+
+    private String type;
 
     public Platform(World world, BoxShape obstacleSize) {
         super(world, obstacleSize);
@@ -24,10 +27,12 @@ public class Platform extends StaticBody {
         setFillColor(Color.GRAY);
         setLineColor(Color.GRAY);
         SetType("default", 0);
+        isBoundary = false;
     }
 
+
     public void SetType(String type, int variation) {
-        removeAllImages();
+        this.type = type;
         switch (type) {
             case "default" -> addImage(new BodyImage(TILE_IMAGE_PATH, 2));
             case "platform-edge-right-single" -> addImage(new BodyImage(EDGE_RIGHT_SINGLE_PATH, 3));
@@ -44,8 +49,11 @@ public class Platform extends StaticBody {
         }
     }
 
-    public String getType() {
-        return type
+    public boolean getBoundary() {
+        return isBoundary;
     }
 
+    public void setBoundary(boolean isBoundary) {
+        this.isBoundary = isBoundary;
+    }
 }

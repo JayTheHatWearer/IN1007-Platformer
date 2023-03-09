@@ -5,13 +5,19 @@ import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Student extends Walker {
     private String currentImage;
     private boolean isFlipped;
     private  Vec2 lastSaveLocation;
 
+    private ArrayList<Flipper> collectedFlippers = new ArrayList<>();
+
     private static final Shape studentShape = new BoxShape(1, 1.25f);
+
+    private int currentHealth = 3;
+
 
     public Student(World world) {
         super(world, studentShape);
@@ -82,4 +88,40 @@ public class Student extends Walker {
     }
 
 
+
+    public void Respawn() {
+        this.setFlipped(false);
+        this.returnStudent();
+        this.setLinearVelocity(new Vec2(0,0));
+        setCurrentHealth(currentHealth- 1);
+        Game.getLevelManager().ResetLevel();
+
+
+    }
+
+    public void addCollectedFlippers(Flipper collectedFlipper) {
+        collectedFlipper.setState(true);
+        collectedFlippers.add(collectedFlipper);
+
+    }
+    public void setCollectedFlippers(ArrayList<Flipper> collectedFlippers) {
+        this.collectedFlippers = collectedFlippers;
+    }
+
+    public ArrayList<Flipper> getCollectedFlippers() {
+        return collectedFlippers;
+    }
+
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+        System.out.println(currentHealth);
+        if (this.currentHealth == 0) {
+            Game.getLevelManager().DeadStudent();
+        }
+    }
 }

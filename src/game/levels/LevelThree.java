@@ -3,7 +3,6 @@ package game.levels;
 import city.cs.engine.BoxShape;
 import city.cs.engine.World;
 import game.CheckPoint;
-import game.Flipper;
 import game.Platform;
 import game.Student;
 import game.CollisonHandler;
@@ -42,16 +41,6 @@ public class LevelThree extends World {
 
         Platform containerFive = new Platform(this, new BoxShape(4f, 6f));
         containerFive.setPosition(new Vec2(10f,-8));
-
-        Flipper flipperOne = new Flipper(this);
-        flipperOne.setPosition(new Vec2(-9f, -6f));
-
-        Flipper flipperTwo = new Flipper(this);
-        flipperTwo.setPosition(new Vec2(-3f, 6f));
-
-        Flipper flipperThree = new Flipper(this);
-        flipperThree.setPosition(new Vec2(3f, -6f));
-
         CheckPoint finishLine = new CheckPoint(this, new BoxShape(2f, 1f));
         finishLine.setPosition(new Vec2(9f, 12f));
         //make a character (with an overlaid image)
