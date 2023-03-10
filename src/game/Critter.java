@@ -9,7 +9,7 @@ public class Critter extends Walker {
 
     private int direction;
 
-    private static final Shape studentShape = new BoxShape(1, 1);
+    private static final Shape studentShape = new BoxShape(1, 0.9f);
 
     public Critter(World world) {
         super(world, studentShape);

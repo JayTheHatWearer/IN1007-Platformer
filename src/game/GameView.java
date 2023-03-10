@@ -11,8 +11,6 @@ public class GameView extends UserView {
 
     private int minX = -20;
     private int maxX = 20;
-    private int imageWidth = 800;
-
     private Image background;
 
     public GameView(World world, int width, int height) {
@@ -45,5 +43,12 @@ public class GameView extends UserView {
 
     public void setBackground(Image newBG) {
         background = newBG;
+    }
+
+
+    @Override
+    protected void paintForeground(Graphics2D g) {
+        int healthValue = Game.getLevelManager().currentStudent.getCurrentHealth();
+        g.drawImage(new ImageIcon("data/img/health/health-" + healthValue + ".png").getImage(), 10, 425, this);
     }
 }

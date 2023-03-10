@@ -1,11 +1,6 @@
 package game;
 
-import game.levels.LevelOne;
-import game.levels.LevelThree;
-import game.levels.LevelTwo;
-import game.levels.LevelZero;
-import org.jetbrains.annotations.NotNull;
-
+import game.levels.*;
 import java.util.ArrayList;
 
 public class LevelManager {
@@ -38,7 +33,6 @@ public class LevelManager {
                 StudentController controllerOne = new StudentController(currentStudent);
                 view.addKeyListener(controllerOne);
                 worldOne.start();
-                // JFrame debugView = new DebugViewer(worldOne, 500, 500);
             }
 
             case 2 -> {
@@ -65,7 +59,7 @@ public class LevelManager {
         }
     }
 
-    public void unloadLevel(@NotNull GameView view) {
+    public void unloadLevel(GameView view) {
         view.getWorld().stop();
     }
 

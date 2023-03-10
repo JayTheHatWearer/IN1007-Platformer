@@ -12,7 +12,7 @@ public class ProjectileImpact implements CollisionListener {
         if (collisionEvent.getOtherBody() == student) {
             student.Respawn();
             collisionEvent.getReportingBody().destroy();
-        } else if (!(collisionEvent.getOtherBody() instanceof Drone)) {
+        } else {
             collisionEvent.getReportingBody().destroy();
         }
     }
