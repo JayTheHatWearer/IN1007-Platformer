@@ -2,7 +2,6 @@ package game;
 
 import city.cs.engine.*;
 import city.cs.engine.Shape;
-import org.jbox2d.common.Vec2;
 
 import java.awt.*;
 
@@ -30,13 +29,13 @@ public class Critter extends Walker {
         if (direction == 1) {
             direction = 0;
             startWalking(-5f);
+            this.removeAllImages();
+            this.addImage(new BodyImage("data/sprites/critter/critter-move-left.gif",2));
         } else {
             direction = 1;
             startWalking(5f);
+            this.removeAllImages();
+            this.addImage(new BodyImage("data/sprites/critter/critter-move-right.gif",2));
         }
-    }
-
-    public int getDirection() {
-        return direction;
     }
 }

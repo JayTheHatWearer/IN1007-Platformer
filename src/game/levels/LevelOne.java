@@ -300,6 +300,10 @@ public class LevelOne extends World {
         Obstacle obstacleOne = new Obstacle(this, new BoxShape(3,1));
         obstacleOne.setPosition(new Vec2(1f,-13.5f));
 
+        Drone newDrone = new Drone(this);
+        DroneCollisions droneOneManager = new DroneCollisions(newDrone);
+        newDrone.addCollisionListener(droneOneManager);
+
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
         finishLine.setPosition(new Vec2(9f, -12f));
