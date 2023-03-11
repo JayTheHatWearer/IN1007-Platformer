@@ -1,7 +1,7 @@
 package game;
 
-import city.cs.engine.*;
-import org.jbox2d.common.Vec2;
+import city.cs.engine.StepEvent;
+import city.cs.engine.StepListener;
 
 public class Tracker implements StepListener {
     private GameView view;

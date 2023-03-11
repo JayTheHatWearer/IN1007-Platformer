@@ -1,6 +1,10 @@
 package game;
 
-import game.levels.*;
+import game.levels.LevelOne;
+import game.levels.LevelThree;
+import game.levels.LevelTwo;
+import game.levels.LevelZero;
+
 import java.util.ArrayList;
 
 public class LevelManager {

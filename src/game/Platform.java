@@ -1,8 +1,11 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.BodyImage;
+import city.cs.engine.BoxShape;
+import city.cs.engine.StaticBody;
+import city.cs.engine.World;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Platform extends StaticBody {
     private static final String TILE_IMAGE_PATH = "data/img/tiles/tile.png";

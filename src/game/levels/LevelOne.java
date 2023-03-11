@@ -1,6 +1,7 @@
 package game.levels;
 
-import city.cs.engine.*;
+import city.cs.engine.BoxShape;
+import city.cs.engine.World;
 import game.*;
 import obstacle.Obstacle;
 import org.jbox2d.common.Vec2;

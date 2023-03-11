@@ -1,6 +1,8 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.BoxShape;
+import city.cs.engine.StaticBody;
+import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
 import java.awt.*;

@@ -1,6 +1,7 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.CollisionEvent;
+import city.cs.engine.CollisionListener;
 
 public class ProjectileImpact implements CollisionListener {
 

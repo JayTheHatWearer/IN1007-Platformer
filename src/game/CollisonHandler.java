@@ -3,6 +3,7 @@ package game;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import obstacle.Obstacle;
+
 import java.awt.*;
 
 public class CollisonHandler implements CollisionListener {

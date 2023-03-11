@@ -3,9 +3,9 @@ package game.levels;
 import city.cs.engine.BoxShape;
 import city.cs.engine.World;
 import game.CheckPoint;
+import game.CollisonHandler;
 import game.Platform;
 import game.Student;
-import game.CollisonHandler;
 import org.jbox2d.common.Vec2;
 
 public class LevelThree extends World {

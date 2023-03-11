@@ -3,9 +3,9 @@ package game;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 public class Drone extends DynamicBody implements ActionListener{
 
@@ -27,28 +27,33 @@ public class Drone extends DynamicBody implements ActionListener{
         this.setGravityScale(0);
     }
 
+    // Method for preparing to shoot a bullet
     public void BulletPreparation() {
-
+        // Get the current student object and calculate the angle between the student and the drone
         Student currentStudent = Game.getLevelManager().currentStudent;
         double angle = this.GetDifference(currentStudent.getPosition(), this.getPosition());
-        setAngle((float) angle);
 
-       SwapImage("attack-right");
+        // Set the image of the drone to attack right and create a new timer for releasing a projectile
+        SwapImage("attack-right");
         Timer bulletTimer = new Timer(200, new ProjectileRelease(this, angle));
         bulletTimer.setInitialDelay(0);
         bulletTimer.start();
     }
 
+    // Method that is called when the timer for shooting bullets is fired
     @Override
     public void actionPerformed(ActionEvent ae) {
         BulletPreparation();
     }
 
+
+    // Method for calculating the angle between two positions
     public double GetDifference(Vec2 studentPos, Vec2 currentPos) {
         double deltaY = studentPos.y - currentPos.y;
         double deltaX = studentPos.x - currentPos.x;
         return Math.atan2(deltaY, deltaX);
     }
+
 
     public void Crash() {
         removeAllImages();
@@ -70,33 +75,58 @@ public class Drone extends DynamicBody implements ActionListener{
     }
 }
 
+/**
+ * An ActionListener that creates and releases a projectile from a Drone.
+ */
 class ProjectileRelease implements ActionListener {
+    // The Drone that is releasing the projectile
     private final Drone sourceDrone;
+    // The angle at which the projectile is being released
     private final double angle;
 
+    /**
+     * Constructs a new ProjectileRelease.
+     * @param sourceDrone The Drone that is releasing the projectile.
+     * @param angle The angle at which the projectile is being released.
+     */
     public ProjectileRelease(Drone sourceDrone, double angle) {
         this.sourceDrone = sourceDrone;
         this.angle = angle;
     }
 
+    /**
+     * Called when the ActionListener is triggered.
+     * Creates a new projectile and releases it from the Drone.
+     * @param e The ActionEvent that triggered this ActionListener.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        // Create a new DynamicBody for the projectile, with a box shape
         DynamicBody projectile = new DynamicBody(sourceDrone.getWorld(), new BoxShape(0.25f, 1f));
 
+        // Set the BodyImage for the projectile to a laser image
         BodyImage bullet = new BodyImage("data/img/lasers/dronelaser.png");
         AttachedImage bulletImage = new AttachedImage(projectile, bullet, 3F, 0, new Vec2());
+
+        // Create a new ProjectileImpact listener and add it to the projectile
         ProjectileImpact impact = new ProjectileImpact();
         projectile.addCollisionListener(impact);
+
+        // Set the gravity scale for the projectile to 0
         projectile.setGravityScale(0f);
+
+        // Set the initial position and angle of the projectile
         projectile.setPosition(new Vec2((float) (2 * Math.cos(angle)), (float) (2 * Math.sin(angle))));
         projectile.setAngle((float) (angle + Math.PI / 2));
-        projectile.setLinearVelocity(new Vec2((float) Math.cos(angle) * 20, (float) Math.sin(angle) * 20));
-        System.out.println("vel: " + projectile.getLinearVelocity() + " angle: " + angle);
+
+        // Set the initial velocity of the projectile in the direction of the angle
+        projectile.setLinearVelocity(new Vec2((float) Math.cos(angle) * 15, (float) Math.sin(angle) * 15));
+
+        // Set the Drone's image to "idle"
         sourceDrone.SwapImage("idle");
 
+        // Stop the Timer that triggered this ActionListener
         Timer timer = (Timer) e.getSource();
         timer.stop();
     }
 }
-
