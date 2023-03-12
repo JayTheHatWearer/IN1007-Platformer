@@ -60,7 +60,6 @@ public class Drone extends DynamicBody implements ActionListener {
         return Math.atan2(deltaY, deltaX);
     }
 
-
     public void Crash() {
         angleTimer.removeActionListener(angleTimer.getActionListeners()[0]);
         angleTimer.stop();
@@ -71,6 +70,14 @@ public class Drone extends DynamicBody implements ActionListener {
         setGravityScale(10);
         applyForce(new Vec2((float) (Math.random() * 20 - 10), 0f));
 
+    }
+
+    @Override
+    public void destroy() {
+        angleTimer.stop();
+        shotTimer.stop();
+        bulletTimer.stop();
+        super.destroy();
     }
 }
 

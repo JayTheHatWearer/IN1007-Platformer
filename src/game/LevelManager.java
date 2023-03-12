@@ -1,5 +1,7 @@
 package game;
 
+import city.cs.engine.Body;
+import city.cs.engine.World;
 import game.levels.LevelOne;
 import game.levels.LevelThree;
 import game.levels.LevelTwo;
@@ -69,7 +71,10 @@ public class LevelManager {
     }
 
     public void unloadLevel(GameView view) {
-        view.getWorld().stop();
+        World oldWorld = view.getWorld();
+        oldWorld.getDynamicBodies().forEach(Body::destroy);
+        oldWorld.getStaticBodies().forEach(Body::destroy);
+        oldWorld.stop();
     }
 
     public void setCurrentLevel(int newLevelNumber) {

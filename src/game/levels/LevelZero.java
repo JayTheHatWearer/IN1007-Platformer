@@ -46,8 +46,8 @@ public class LevelZero extends World {
             Platform rightWall = new Platform(this, new BoxShape(1f, 12));
             rightWall.setPosition(new Vec2(21f, 0f));
 
-            Platform roofOne = new Platform(this, new BoxShape(10f, 1f));
-            roofOne.setPosition(new Vec2(0f, 13f));
+            Platform leftWall = new Platform(this, new BoxShape(1f, 12));
+            leftWall.setPosition(new Vec2(-21f, 0f));
 
         }
     public Student getStudent() {
