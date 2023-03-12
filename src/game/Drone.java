@@ -106,7 +106,7 @@ class ProjectileRelease implements ActionListener {
 
         // Set the BodyImage for the projectile to a laser image
         BodyImage bullet = new BodyImage("data/img/lasers/dronelaser.png");
-        AttachedImage bulletImage = new AttachedImage(projectile, bullet, 3F, 0, new Vec2());
+        new AttachedImage(projectile, bullet, 3F, 0, new Vec2());
 
         // Create a new ProjectileImpact listener and add it to the projectile
         ProjectileImpact impact = new ProjectileImpact();
@@ -118,6 +118,8 @@ class ProjectileRelease implements ActionListener {
         // Set the initial position and angle of the projectile
         projectile.setPosition(new Vec2((float) (2 * Math.cos(angle)), (float) (2 * Math.sin(angle))));
         projectile.setAngle((float) (angle + Math.PI / 2));
+
+        sourceDrone.setAngle((float) (angle));
 
         // Set the initial velocity of the projectile in the direction of the angle
         projectile.setLinearVelocity(new Vec2((float) Math.cos(angle) * 15, (float) Math.sin(angle) * 15));

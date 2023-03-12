@@ -27,10 +27,7 @@ public class LevelOne extends World {
         student.setReturnPosition(new Vec2(-18f, 6f));
 
         Critter critterOne = new Critter(this);
-        critterOne.setPosition(new Vec2(21.5f, -1.5f));
-        CritterController critterOneController = new CritterController(critterOne);
-        critterOne.addCollisionListener(critterOneController);
-
+        critterOne.setPosition(new Vec2(21f, -1.5f));
 
         this.addStepListener(new Tracker(Game.getView(), student));
 
@@ -294,9 +291,8 @@ public class LevelOne extends World {
         defaultContainers[60].SetType("single", 8);
 
 
-
-        Flipper flipperOne = new Flipper (this, new Vec2(14.5f, -4.5f));
-        Flipper flipperTwo = new Flipper (this, new Vec2(17.5f, 7.5f));
+        new Flipper(this, new Vec2(14.5f, -4.5f));
+        new Flipper(this, new Vec2(17.5f, 7.5f));
 
         Obstacle obstacleOne = new Obstacle(this, new BoxShape(3,1));
         obstacleOne.setPosition(new Vec2(1f,-13.5f));

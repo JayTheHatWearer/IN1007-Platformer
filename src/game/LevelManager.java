@@ -27,6 +27,7 @@ public class LevelManager {
                 StudentController controller = new StudentController(currentStudent);
                 view.addKeyListener(controller);
                 worldZero.start();
+
             }
             case 1 -> {
                 LevelOne worldOne = new LevelOne();
@@ -37,6 +38,9 @@ public class LevelManager {
                 StudentController controllerOne = new StudentController(currentStudent);
                 view.addKeyListener(controllerOne);
                 worldOne.start();
+
+                // JFrame debug = new DebugViewer(worldOne, 800, 480);
+
             }
 
             case 2 -> {
@@ -48,6 +52,7 @@ public class LevelManager {
                 StudentController controllerTwo = new StudentController(currentStudent);
                 view.addKeyListener(controllerTwo);
                 worldTwo.start();
+
             }
 
             case 3 -> {

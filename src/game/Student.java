@@ -14,7 +14,7 @@ public class Student extends Walker {
 
     private ArrayList<Flipper> collectedFlippers = new ArrayList<>();
 
-    private static final Shape studentShape = new BoxShape(1, 1.25f);
+    private static final Shape studentShape = new PolygonShape(-0.4f,1.25f, -0.75f,0f, -0.5f,-1.25f, 0.5f,-1.25f, 0.75f,0f, 0.4f,1.25f);
 
     private int currentHealth = 3;
 

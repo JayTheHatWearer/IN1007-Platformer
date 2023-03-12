@@ -1,6 +1,6 @@
 package game.levels;
 
-import city.cs.engine.BodyImage;
+
 import city.cs.engine.BoxShape;
 import city.cs.engine.World;
 import game.*;
@@ -8,7 +8,6 @@ import org.jbox2d.common.Vec2;
 
 public class LevelZero extends World {
     private final Student student;
-    private Tracker trackerMain;
 
     public LevelZero() {
         super();
@@ -20,22 +19,12 @@ public class LevelZero extends World {
         student.setReturnPosition(new Vec2(-9f, -9f));
         CollisonHandler obstacleMain = new CollisonHandler(student);
         student.addCollisionListener(obstacleMain);
-        trackerMain = new Tracker(Game.getView(), this.getStudent());
+        Tracker trackerMain = new Tracker(Game.getView(), this.getStudent());
         this.addStepListener(trackerMain);
 
     }
 
     private void Populate() {
-
-        Platform aKey = new Platform(this, new BoxShape(2.5f, 2.5f));
-        aKey.setPosition(new Vec2(-3.5f,2.5f));
-        aKey.SetType("special", 0);
-        aKey.addImage(new BodyImage("data/img/keys/A.gif", 5));
-
-        Platform dKey = new Platform(this, new BoxShape(2.5f, 2.5f));
-        dKey.setPosition(new Vec2(3.5f,2.5f));
-        dKey.SetType("special", 0);
-        dKey.addImage(new BodyImage("data/img/keys/D.gif", 5));
 
         FinishLine finishLine = new FinishLine(this, new BoxShape(0.66f, 2f));
         finishLine.setPosition(new Vec2(15f, -6f));
@@ -65,7 +54,6 @@ public class LevelZero extends World {
         return student;
     }
 
-    public Tracker getTracker() { return trackerMain;}
 
 
 }

@@ -9,13 +9,23 @@ public class Critter extends Walker {
 
     private int direction;
 
-    private static final Shape studentShape = new BoxShape(1, 0.9f);
+    private static final Shape critterShape = new PolygonShape(-1f,0.4f, -1.1f,0f, -1f,-1.25f, 1f,-1.25f, 1.1f,0f, 1f,0.4f);
+
 
     public Critter(World world) {
-        super(world, studentShape);
+        super(world, critterShape);
         setFillColor(Color.PINK);
         direction = 1;
         startWalking(5);
+        Sensor topSensor = new Sensor(this, new PolygonShape(-0.8f,0.45f, -0.8f,0.4f, 0.8f,0.4f,  0.8f,0.45f));
+        TopSensor topSensorListener = new TopSensor(this);
+        topSensor.addSensorListener(topSensorListener);
+
+
+
+        Sensor sideSensor = new Sensor(this, new PolygonShape(-1.05f,0.35f, -1.15f,0f, -1.05f,-1f, 1.05f,-1f, 1.15f,0f, 1.05f,0.35f));
+        SideSensor sideSensorListener = new SideSensor(this);
+        sideSensor.addSensorListener(sideSensorListener);
     }
 
     // TODO
@@ -34,8 +44,48 @@ public class Critter extends Walker {
         } else {
             direction = 1;
             startWalking(5f);
+            startWalking(5f);
             this.removeAllImages();
             this.addImage(new BodyImage("data/sprites/critter/critter-move-right.gif",2));
         }
+    }
+}
+
+class TopSensor implements SensorListener {
+
+    private final Critter critter;
+    public TopSensor(Critter critter) {
+        this.critter = critter;
+    }
+    @Override
+    public void beginContact(SensorEvent sensorEvent) {
+        critter.destroy();
+    }
+
+    @Override
+    public void endContact(SensorEvent sensorEvent) {
+    }
+}
+
+class SideSensor implements SensorListener {
+
+    private final Critter critter;
+
+    public SideSensor(Critter critter) {
+        this.critter = critter;
+
+    }
+    @Override
+    public void beginContact(SensorEvent sensorEvent) {
+        if (!(sensorEvent.getContactBody() instanceof Student)) {
+            critter.SwitchDirection();
+            this.endContact(sensorEvent);
+        } else {
+            Game.getLevelManager().currentStudent.Respawn();
+        }
+    }
+
+    @Override
+    public void endContact(SensorEvent sensorEvent) {
     }
 }
