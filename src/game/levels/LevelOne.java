@@ -291,15 +291,13 @@ public class LevelOne extends World {
         defaultContainers[60].SetType("single", 8);
 
 
-        new Flipper(this, new Vec2(14.5f, -4.5f));
-        new Flipper(this, new Vec2(17.5f, 7.5f));
+        Flipper flipper = new Flipper(this, new Vec2(14.5f, -4.5f));
+        Flipper flipper1 = new Flipper(this, new Vec2(17.5f, 7.5f));
 
         Obstacle obstacleOne = new Obstacle(this, new BoxShape(3,1));
         obstacleOne.setPosition(new Vec2(1f,-13.5f));
 
-        Drone newDrone = new Drone(this);
-        DroneCollisions droneOneManager = new DroneCollisions(newDrone);
-        newDrone.addCollisionListener(droneOneManager);
+        Drone drone = new Drone(this);
 
         // create the finish line
         FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));

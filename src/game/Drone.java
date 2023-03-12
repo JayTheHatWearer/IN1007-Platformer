@@ -7,22 +7,28 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Drone extends DynamicBody implements ActionListener{
+public class Drone extends DynamicBody implements ActionListener {
 
     private static final Shape droneShape = new CircleShape(0.5f);
 
-    private static final String deathImage = "data/sprites/drone/drone-death.gif";
-    private static final String attackRightImage = "data/sprites/drone/drone-attack-right.gif";
-    private static final String attackLeftImage = "data/sprites/drone/drone-attack-left.gif";
-
     private final Timer shotTimer;
+    private final Timer angleTimer;
+
+    private Timer bulletTimer;
+
     public Drone(World w) {
         super(w, droneShape);
-        shotTimer = new Timer(5000, this);
-        shotTimer.setInitialDelay(5000);
+        shotTimer = new Timer(4000, this);
         shotTimer.start();
 
-        this.SwapImage("idle");
+        angleTimer = new Timer(50, new AngleSetter(this));
+        angleTimer.setInitialDelay(50);
+        angleTimer.start();
+
+        DroneCollisions droneManager = new DroneCollisions(this);
+        addCollisionListener(droneManager);
+
+        addImage(new BodyImage("data/sprites/drone/drone-idle.gif", 3));
 
         this.setGravityScale(0);
     }
@@ -31,12 +37,12 @@ public class Drone extends DynamicBody implements ActionListener{
     public void BulletPreparation() {
         // Get the current student object and calculate the angle between the student and the drone
         Student currentStudent = Game.getLevelManager().currentStudent;
-        double angle = this.GetDifference(currentStudent.getPosition(), this.getPosition());
 
-        // Set the image of the drone to attack right and create a new timer for releasing a projectile
-        SwapImage("attack-right");
-        Timer bulletTimer = new Timer(200, new ProjectileRelease(this, angle));
-        bulletTimer.setInitialDelay(0);
+
+        removeAllImages();
+        addImage(new BodyImage("data/sprites/drone/drone-red.gif", 3));
+
+        bulletTimer = new Timer(1000, new ProjectileRelease(this, currentStudent));
         bulletTimer.start();
     }
 
@@ -56,24 +62,18 @@ public class Drone extends DynamicBody implements ActionListener{
 
 
     public void Crash() {
-        removeAllImages();
-        addImage(new BodyImage(deathImage, 3));
-        setGravityScale(10);
-        applyForce(new Vec2((float) (Math.random() * 20 - 10), 0f));
+        angleTimer.removeActionListener(angleTimer.getActionListeners()[0]);
+        angleTimer.stop();
         shotTimer.removeActionListener(this);
         shotTimer.stop();
-    }
+        bulletTimer.stop();
+        bulletTimer.removeActionListener(bulletTimer.getActionListeners()[0]);
+        setGravityScale(10);
+        applyForce(new Vec2((float) (Math.random() * 20 - 10), 0f));
 
-    public void SwapImage(String imageType) {
-        this.removeAllImages();
-        switch (imageType) {
-            case "death" -> this.addImage(new BodyImage(deathImage, 3));
-            case "idle" -> this.addImage(new BodyImage("data/sprites/drone/drone-idle.gif", 3));
-            case "attack-left" -> this.addImage(new BodyImage(attackLeftImage, 3));
-            case "attack-right" -> this.addImage(new BodyImage(attackRightImage, 3));
-        }
     }
 }
+
 
 /**
  * An ActionListener that creates and releases a projectile from a Drone.
@@ -81,17 +81,16 @@ public class Drone extends DynamicBody implements ActionListener{
 class ProjectileRelease implements ActionListener {
     // The Drone that is releasing the projectile
     private final Drone sourceDrone;
-    // The angle at which the projectile is being released
-    private final double angle;
+
+    private final Student student;
 
     /**
      * Constructs a new ProjectileRelease.
      * @param sourceDrone The Drone that is releasing the projectile.
-     * @param angle The angle at which the projectile is being released.
      */
-    public ProjectileRelease(Drone sourceDrone, double angle) {
+    public ProjectileRelease(Drone sourceDrone, Student student) {
         this.sourceDrone = sourceDrone;
-        this.angle = angle;
+        this.student = student;
     }
 
     /**
@@ -101,6 +100,10 @@ class ProjectileRelease implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
+        // The angle at which the projectile is being released
+        double angle = sourceDrone.GetDifference(student.getPosition(), sourceDrone.getPosition());
         // Create a new DynamicBody for the projectile, with a box shape
         DynamicBody projectile = new DynamicBody(sourceDrone.getWorld(), new BoxShape(0.25f, 1f));
 
@@ -125,10 +128,42 @@ class ProjectileRelease implements ActionListener {
         projectile.setLinearVelocity(new Vec2((float) Math.cos(angle) * 15, (float) Math.sin(angle) * 15));
 
         // Set the Drone's image to "idle"
-        sourceDrone.SwapImage("idle");
+        sourceDrone.removeAllImages();
+        sourceDrone.addImage(new BodyImage("data/sprites/drone/drone-idle.gif", 3));
 
         // Stop the Timer that triggered this ActionListener
         Timer timer = (Timer) e.getSource();
         timer.stop();
+
+    }
+}
+
+class AngleSetter implements ActionListener {
+
+    private final Drone drone;
+    public AngleSetter(Drone drone) {
+        this.drone = drone;
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        drone.setAngle((float) drone.GetDifference(Game.getLevelManager().currentStudent.getPosition(), drone.getPosition()));
+    }
+}
+
+class DroneCollisions implements CollisionListener {
+
+    private final Drone drone;
+
+    public DroneCollisions(Drone drone) {
+        this.drone = drone;
+    }
+
+    @Override
+    public void collide(CollisionEvent collisionEvent) {
+        if (collisionEvent.getOtherBody() instanceof Student) {
+            drone.Crash();
+        } else {
+            drone.destroy();
+        }
     }
 }

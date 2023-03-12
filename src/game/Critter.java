@@ -11,19 +11,18 @@ public class Critter extends Walker {
 
     private static final Shape critterShape = new PolygonShape(-1f,0.4f, -1.1f,0f, -1f,-1.25f, 1f,-1.25f, 1.1f,0f, 1f,0.4f);
 
+    private final Sensor sideSensor = new Sensor(this, new PolygonShape(-1.05f,0.35f, -1.15f,0f, -1.05f,-1f, 1.05f,-1f, 1.15f,0f, 1.05f,0.35f));
 
     public Critter(World world) {
         super(world, critterShape);
         setFillColor(Color.PINK);
         direction = 1;
         startWalking(5);
-        Sensor topSensor = new Sensor(this, new PolygonShape(-0.8f,0.45f, -0.8f,0.4f, 0.8f,0.4f,  0.8f,0.45f));
+        Sensor topSensor = new Sensor(this, new PolygonShape(-0.9f,0.5f, -0.8f,0.4f, 0.8f,0.4f,  0.9f,0.5f));
         TopSensor topSensorListener = new TopSensor(this);
         topSensor.addSensorListener(topSensorListener);
 
 
-
-        Sensor sideSensor = new Sensor(this, new PolygonShape(-1.05f,0.35f, -1.15f,0f, -1.05f,-1f, 1.05f,-1f, 1.15f,0f, 1.05f,0.35f));
         SideSensor sideSensorListener = new SideSensor(this);
         sideSensor.addSensorListener(sideSensorListener);
     }
@@ -49,6 +48,11 @@ public class Critter extends Walker {
             this.addImage(new BodyImage("data/sprites/critter/critter-move-right.gif",2));
         }
     }
+
+    public void Deactivate() {
+        sideSensor.removeAllSensorListeners();
+        destroy();
+    }
 }
 
 class TopSensor implements SensorListener {
@@ -59,7 +63,7 @@ class TopSensor implements SensorListener {
     }
     @Override
     public void beginContact(SensorEvent sensorEvent) {
-        critter.destroy();
+        critter.Deactivate();
     }
 
     @Override
@@ -89,3 +93,4 @@ class SideSensor implements SensorListener {
     public void endContact(SensorEvent sensorEvent) {
     }
 }
+
