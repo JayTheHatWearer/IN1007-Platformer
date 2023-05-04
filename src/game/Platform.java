@@ -18,6 +18,7 @@ public class Platform extends StaticBody {
     private static final String CORNER_IMAGE_PATH = "data/img/tiles/corners/corner";
     private static final String MID_WALL_IMAGE_PATH = "data/img/tiles/mid-wall/mid-wall";
     private static final String CEILING_AND_GROUND_IMAGE_PATH = "data/img/tiles/candg/candg";
+    private static final String LEFT_WALL_IMAGE_PATH = "data/img/tiles/left-wall/left-wall";
     private static final String BLANK_IMAGE_PATH = "data/img/tiles/blank";
 
     private boolean isBoundary;
@@ -45,6 +46,7 @@ public class Platform extends StaticBody {
             case "mid-wall" -> addImage(new BodyImage(MID_WALL_IMAGE_PATH + variation + ".png", 3));
             case "blank" -> addImage(new BodyImage(BLANK_IMAGE_PATH + ".png", 3));
             case "candg" -> addImage(new BodyImage(CEILING_AND_GROUND_IMAGE_PATH + variation + ".png", 3));
+            case "left-wall" -> addImage(new BodyImage(LEFT_WALL_IMAGE_PATH + variation + ".png", 3));
 
         }
     }

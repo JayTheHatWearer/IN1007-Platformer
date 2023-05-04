@@ -290,6 +290,10 @@ public class LevelOne extends World {
         defaultContainers[60].setPosition(new Vec2(11.5f,4.5f));
         defaultContainers[60].SetType("single", 8);
 
+        FinishLine finishLine = new FinishLine(this, new BoxShape(0.66f, 2f));
+        finishLine.setPosition(new Vec2(22f, 4.5f));
+        finishLine.setNextLevel(2);
+
 
         Flipper flipper = new Flipper(this, new Vec2(14.5f, -4.5f));
         Flipper flipper1 = new Flipper(this, new Vec2(17.5f, 7.5f));
@@ -298,11 +302,6 @@ public class LevelOne extends World {
         obstacleOne.setPosition(new Vec2(1f,-13.5f));
 
         Drone drone = new Drone(this);
-
-        // create the finish line
-        FinishLine finishLine = new FinishLine(this, new BoxShape(2f, 1f));
-        finishLine.setPosition(new Vec2(9f, -12f));
-        finishLine.setNextLevel(2);
 
     }
 

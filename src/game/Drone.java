@@ -70,12 +70,11 @@ public class Drone extends DynamicBody implements ActionListener {
 
         if (isBulletRunning) {
             bulletTimer.stop();
+
+            setGravityScale(10);
+            applyForce(new Vec2((float) (Math.random() * 20 - 10), 0f));
+            Game.getLevelManager().ChangeSound("data/sounds/drone-crash.wav", true);
         }
-
-        bulletTimer.removeActionListener(bulletTimer.getActionListeners()[0]);
-        setGravityScale(10);
-        applyForce(new Vec2((float) (Math.random() * 20 - 10), 0f));
-
     }
 
 
@@ -83,13 +82,6 @@ public class Drone extends DynamicBody implements ActionListener {
         angleTimer.start();
     }
 
-    @Override
-    public void destroy() {
-        Game.getLevelManager().ChangeSound("data/sounds/drone-crash.wav", true);
-        angleTimer.stop();
-        shotTimer.stop();
-        super.destroy();
-    }
 }
 
 

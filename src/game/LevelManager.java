@@ -1,6 +1,7 @@
 package game;
 
 import city.cs.engine.Body;
+import city.cs.engine.DebugViewer;
 import city.cs.engine.SoundClip;
 import city.cs.engine.World;
 import game.levels.LevelOne;
@@ -10,6 +11,7 @@ import game.levels.LevelZero;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -50,7 +52,6 @@ public class LevelManager {
                 ChangeSound("data/sounds/music1.wav", false);
                 worldOne.start();
 
-                // JFrame debug = new DebugViewer(worldOne, 800, 480);
 
             }
 
@@ -63,6 +64,7 @@ public class LevelManager {
                 StudentController controllerTwo = new StudentController(currentStudent);
                 view.addKeyListener(controllerTwo);
                 worldTwo.start();
+                JFrame debug = new DebugViewer(worldTwo, 800, 480);
 
             }
 

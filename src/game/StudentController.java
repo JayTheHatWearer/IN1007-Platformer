@@ -2,6 +2,7 @@ package game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Level;
 
 public class StudentController implements KeyListener {
     Student student;
