@@ -4,8 +4,8 @@ import city.cs.engine.StepEvent;
 import city.cs.engine.StepListener;
 
 public class Tracker implements StepListener {
-    private GameView view;
-    private Student student;
+    private final GameView  view;
+    private final Student student;
 
     public Tracker(GameView view, Student student) {
         this.view = view;
