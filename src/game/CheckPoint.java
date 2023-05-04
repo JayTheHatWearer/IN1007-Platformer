@@ -23,7 +23,4 @@ public class CheckPoint extends StaticBody {
     return checkpointLocation;
     }
 
-    public void setCheckpointLocation(Vec2 checkpointLocationNew) {
-        checkpointLocation = checkpointLocationNew;
-    }
 }

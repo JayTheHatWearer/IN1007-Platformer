@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class StudentController implements KeyListener {
-    boolean isFlipped;
     Student student;
     public StudentController(Student Instudent) {
         student = Instudent;

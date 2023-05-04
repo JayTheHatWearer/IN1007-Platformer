@@ -9,7 +9,6 @@ import java.awt.*;
 
 public class GameView extends UserView {
 
-    private int minX = -20;
     private int maxX = 20;
     private Image background;
 
@@ -37,7 +36,6 @@ public class GameView extends UserView {
     }
 
     public void setBounds(int newMin, int newMax) {
-        minX = newMin;
         maxX = newMax;
     }
 

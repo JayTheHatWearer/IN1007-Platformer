@@ -9,6 +9,8 @@ import java.awt.*;
 public class CollisonHandler implements CollisionListener {
 
     private final Student student;
+
+
     public CollisonHandler(Student s) {
         this.student = s;
     }
@@ -26,11 +28,16 @@ public class CollisonHandler implements CollisionListener {
             student.setFlipped((!student.getFlipped()));
             student.stateManager(student.getLinearVelocity());
             student.addCollectedFlippers((Flipper) e.getOtherBody());
+            Game.getLevelManager().ChangeSound("data/sounds/flipper.wav", true);
 
         } else if (e.getOtherBody() instanceof FinishLine) {
             e.getOtherBody().destroy();
             student.destroy();
             Game.getLevelManager().loadLevel(Game.getView(), ((FinishLine) e.getOtherBody()).getNextLevel());
+            Game.getLevelManager().ChangeSound("data/sounds/teleport.wav", true);
         }
     }
+
+
+
 }

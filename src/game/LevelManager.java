@@ -1,16 +1,22 @@
 package game;
 
 import city.cs.engine.Body;
+import city.cs.engine.SoundClip;
 import city.cs.engine.World;
 import game.levels.LevelOne;
 import game.levels.LevelThree;
 import game.levels.LevelTwo;
 import game.levels.LevelZero;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LevelManager {
     int levelNumber;
+
+    SoundClip FX, Music;
     Student currentStudent;
 
     public LevelManager() {
@@ -28,6 +34,7 @@ public class LevelManager {
                 view.setWorld(worldZero);
                 StudentController controller = new StudentController(currentStudent);
                 view.addKeyListener(controller);
+                ChangeSound("data/sounds/music0.wav", false);
                 worldZero.start();
 
             }
@@ -39,6 +46,8 @@ public class LevelManager {
                 view.setWorld(worldOne);
                 StudentController controllerOne = new StudentController(currentStudent);
                 view.addKeyListener(controllerOne);
+                StopMusic();
+                ChangeSound("data/sounds/music1.wav", false);
                 worldOne.start();
 
                 // JFrame debug = new DebugViewer(worldOne, 800, 480);
@@ -93,5 +102,33 @@ public class LevelManager {
 
     public void DeadStudent() {
         setCurrentLevel(1);
+    }
+
+    public void ChangeSound(String path, boolean isEffect) {
+        if (isEffect) {
+            try {
+                FX = new SoundClip(path);
+            } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+                throw new RuntimeException(e);
+            }
+            FX.setVolume(2);
+            FX.play();
+        } else {
+            try {
+                Music = new SoundClip(path);
+
+            } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+
+                throw new RuntimeException(e);
+
+            }
+
+            Music.setVolume(0.5);
+            Music.loop();
+        }
+    }
+
+    public void StopMusic() {
+        Music.stop();
     }
 }

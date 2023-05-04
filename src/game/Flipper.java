@@ -34,9 +34,4 @@ public class Flipper extends StaticBody {
             new Flipper(Game.getView().getWorld(), savedPosition);
         }
     }
-
-    public void ResetFlipper() {
-        this.setState(false);
-    }
-
 }

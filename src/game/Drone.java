@@ -13,12 +13,13 @@ public class Drone extends DynamicBody implements ActionListener {
 
     private final Timer shotTimer;
     private final Timer angleTimer;
+    private boolean isBulletRunning;
 
     private Timer bulletTimer;
 
     public Drone(World w) {
         super(w, droneShape);
-        shotTimer = new Timer(4000, this);
+        shotTimer = new Timer(5000, this);
         shotTimer.start();
 
         angleTimer = new Timer(50, new AngleSetter(this));
@@ -37,12 +38,14 @@ public class Drone extends DynamicBody implements ActionListener {
     public void BulletPreparation() {
         // Get the current student object and calculate the angle between the student and the drone
         Student currentStudent = Game.getLevelManager().currentStudent;
-
-
         removeAllImages();
         addImage(new BodyImage("data/sprites/drone/drone-red.gif", 3));
+        Game.getLevelManager().ChangeSound("data/sounds/drone-charge.wav", true);
+        Vec2 savedStudent = currentStudent.getPosition();
+        angleTimer.stop();
 
-        bulletTimer = new Timer(1000, new ProjectileRelease(this, currentStudent));
+        bulletTimer = new Timer(2000, new ProjectileRelease(this, currentStudent, currentStudent.getPosition()));
+        isBulletRunning = true;
         bulletTimer.start();
     }
 
@@ -61,22 +64,30 @@ public class Drone extends DynamicBody implements ActionListener {
     }
 
     public void Crash() {
-        angleTimer.removeActionListener(angleTimer.getActionListeners()[0]);
         angleTimer.stop();
         shotTimer.removeActionListener(this);
         shotTimer.stop();
-        bulletTimer.stop();
+
+        if (isBulletRunning) {
+            bulletTimer.stop();
+        }
+
         bulletTimer.removeActionListener(bulletTimer.getActionListeners()[0]);
         setGravityScale(10);
         applyForce(new Vec2((float) (Math.random() * 20 - 10), 0f));
 
     }
 
+
+    public void PostShoot() {
+        angleTimer.start();
+    }
+
     @Override
     public void destroy() {
+        Game.getLevelManager().ChangeSound("data/sounds/drone-crash.wav", true);
         angleTimer.stop();
         shotTimer.stop();
-        bulletTimer.stop();
         super.destroy();
     }
 }
@@ -90,14 +101,16 @@ class ProjectileRelease implements ActionListener {
     private final Drone sourceDrone;
 
     private final Student student;
+    private final Vec2 savePosition;
 
     /**
      * Constructs a new ProjectileRelease.
      * @param sourceDrone The Drone that is releasing the projectile.
      */
-    public ProjectileRelease(Drone sourceDrone, Student student) {
+    public ProjectileRelease(Drone sourceDrone, Student student, Vec2 savePosition) {
         this.sourceDrone = sourceDrone;
         this.student = student;
+        this.savePosition = savePosition;
     }
 
     /**
@@ -110,7 +123,7 @@ class ProjectileRelease implements ActionListener {
 
 
         // The angle at which the projectile is being released
-        double angle = sourceDrone.GetDifference(student.getPosition(), sourceDrone.getPosition());
+        double angle = sourceDrone.GetDifference(savePosition, sourceDrone.getPosition());
         // Create a new DynamicBody for the projectile, with a box shape
         DynamicBody projectile = new DynamicBody(sourceDrone.getWorld(), new BoxShape(0.25f, 1f));
 
@@ -138,11 +151,15 @@ class ProjectileRelease implements ActionListener {
         sourceDrone.removeAllImages();
         sourceDrone.addImage(new BodyImage("data/sprites/drone/drone-idle.gif", 3));
 
+        Game.getLevelManager().ChangeSound("data/sounds/drone-shoot.wav", true);
+
         // Stop the Timer that triggered this ActionListener
         Timer timer = (Timer) e.getSource();
         timer.stop();
 
+        sourceDrone.PostShoot();
     }
+
 }
 
 class AngleSetter implements ActionListener {

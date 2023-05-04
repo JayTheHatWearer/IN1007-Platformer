@@ -22,8 +22,6 @@ public class Platform extends StaticBody {
 
     private boolean isBoundary;
 
-    private String type;
-
     public Platform(World world, BoxShape obstacleSize) {
         super(world, obstacleSize);
         setAlwaysOutline(false);
@@ -35,7 +33,6 @@ public class Platform extends StaticBody {
 
 
     public void SetType(String type, int variation) {
-        this.type = type;
         switch (type) {
             case "default" -> addImage(new BodyImage(TILE_IMAGE_PATH, 2));
             case "platform-edge-right-single" -> addImage(new BodyImage(EDGE_RIGHT_SINGLE_PATH, 3));
