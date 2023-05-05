@@ -26,13 +26,13 @@ public class LevelTwo extends World {
         this.addStepListener(new Tracker(Game.getView(), student));
 
         Game.getView().setBounds(-20, 28);
-        Image background1 = new ImageIcon("data/img/level2-bg.png").getImage();
+        Image background1 = new ImageIcon("data/img/level1-bg.png").getImage();
         Game.getView().setBackground(background1);
     }
 
     private void Populate() {
         // create the containers
-        Platform[] defaultContainers = new Platform[61];
+        Platform[] defaultContainers = new Platform[74];
         defaultContainers[0] = new Platform(this, new BoxShape(1.5f, 1.5f));
         defaultContainers[1] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[2] = new Platform(this, new BoxShape(1.5f ,1.5f));
@@ -96,10 +96,22 @@ public class LevelTwo extends World {
         defaultContainers[58] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[59] = new Platform(this, new BoxShape(1.5f ,1.5f));
         defaultContainers[60] = new Platform(this, new BoxShape(1.5f ,1.5f));
-
+        defaultContainers[61] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[62] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[63] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[64] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[65] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[66] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[67] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[68] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[69] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[70] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[71] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[72] = new Platform(this, new BoxShape(1.5f ,1.5f));
+        defaultContainers[73] = new Platform(this, new BoxShape(1.5f ,1.5f));
 
         defaultContainers[0].setPosition(new Vec2(-18.5f, 4.5f));
-        defaultContainers[0].SetType("corner", 2);
+        defaultContainers[0].SetType("ground", 13);
 
         defaultContainers[1].setPosition(new Vec2(-18.5f, 1.5f));
         defaultContainers[1].SetType("left-wall", 0);
@@ -152,8 +164,8 @@ public class LevelTwo extends World {
         defaultContainers[17].setPosition(new Vec2(-12.5f,-4.5f));
         defaultContainers[17].SetType("mid-wall", 4);
 
-        defaultContainers[18].setPosition(new Vec2(-6.5f,-10.5f));
-        defaultContainers[18].SetType("ground", 4);
+        defaultContainers[18].setPosition(new Vec2(14.5f,7.5f));
+        defaultContainers[18].SetType("blank", 1);
 
         defaultContainers[19].setPosition(new Vec2(-12.5f,10.5f));
         defaultContainers[19].SetType("corner", 5);
@@ -212,11 +224,11 @@ public class LevelTwo extends World {
         defaultContainers[37].setPosition(new Vec2(8.5f,-4.5f));
         defaultContainers[37].SetType("ground", 12);
 
-        defaultContainers[38].setPosition(new Vec2(17.5f,-10.5f));
-        defaultContainers[38].SetType("ground", 11);
+        defaultContainers[38].setPosition(new Vec2(26.5f,-7.5f));
+        defaultContainers[38].SetType("right-wall", 4);
 
-        defaultContainers[39].setPosition(new Vec2(14.5f,-10.5f));
-        defaultContainers[39].SetType("ground", 3);
+        defaultContainers[39].setPosition(new Vec2(26.5f,-10.5f));
+        defaultContainers[39].SetType("right-wall", 3);
 
         defaultContainers[40].setPosition(new Vec2(11.5f,-10.5f));
         defaultContainers[40].SetType("blank", 1);
@@ -233,36 +245,36 @@ public class LevelTwo extends World {
         defaultContainers[44].setPosition(new Vec2(2.5f, 10.5f));
         defaultContainers[44].SetType("roof", 4);
 
-        defaultContainers[45].setPosition(new Vec2(26.5f, -7.5f));
-        defaultContainers[45].SetType("blank", 0);
+        defaultContainers[45].setPosition(new Vec2(11.5f, 7.5f));
+        defaultContainers[45].SetType("right-wall", 4);
 
-        defaultContainers[46].setPosition(new Vec2(20.5f, -10.5f));
-        defaultContainers[46].SetType("blank", 0);
+        defaultContainers[46].setPosition(new Vec2(11.5f, 10.5f));
+        defaultContainers[46].SetType("roof", 14);
 
-        defaultContainers[47].setPosition(new Vec2(23.5f, -10.5f));
-        defaultContainers[47].SetType("blank", 0);
+        defaultContainers[47].setPosition(new Vec2(11.5f, -4.5f));
+        defaultContainers[47].SetType("ground", 5);
 
-        defaultContainers[48].setPosition(new Vec2(26.5f, -10.5f));
-        defaultContainers[48].SetType("blank", 0);
+        defaultContainers[48].setPosition(new Vec2(14.5f, -4.5f));
+        defaultContainers[48].SetType("ground", 13);
 
-        defaultContainers[49].setPosition(new Vec2(17.5f,1.5f));
-        defaultContainers[49].SetType("corner", 2);
+        defaultContainers[49].setPosition(new Vec2(14.5f,-7.5f));
+        defaultContainers[49].SetType("left-wall", 5);
 
-        defaultContainers[50].setPosition(new Vec2(14.5f,1.5f));
-        defaultContainers[50].SetType("candg", 1);
+        defaultContainers[50].setPosition(new Vec2(14.5f,-10.5f));
+        defaultContainers[50].SetType("left-wall", 3);
 
         defaultContainers[51].setPosition(new Vec2(11.5f,1.5f));
-        defaultContainers[51].SetType("corner", 3);
+        defaultContainers[51].SetType("corner", 8);
 
-        defaultContainers[52].setPosition(new Vec2(17.5f,-1.5f));
-        defaultContainers[52].SetType("mid-wall", 2);
+        defaultContainers[52].setPosition(new Vec2(14.5f,4.5f));
+        defaultContainers[52].SetType("blank", 1);
         defaultContainers[52].setBoundary(true);
 
-        defaultContainers[53].setPosition(new Vec2(17.5f,-1.5f));
-        defaultContainers[53].SetType("mid-wall", 2);
+        defaultContainers[53].setPosition(new Vec2(14.5f,1.5f));
+        defaultContainers[53].SetType("roof", 2);
 
-        defaultContainers[54].setPosition(new Vec2(17.5f,-1.5f));
-        defaultContainers[54].SetType("mid-wall", 2);
+        defaultContainers[54].setPosition(new Vec2(17.5f,1.5f));
+        defaultContainers[54].SetType("roof", 3);
 
         defaultContainers[55].setPosition(new Vec2(11.5f,-7.5f));
         defaultContainers[55].SetType("blank", 1);
@@ -280,13 +292,76 @@ public class LevelTwo extends World {
         defaultContainers[59].SetType("roof", 7);
 
         defaultContainers[60].setPosition(new Vec2(11.5f,4.5f));
-        defaultContainers[60].SetType("single", 8);
+        defaultContainers[60].SetType("right-wall", 3);
+
+        defaultContainers[60].setPosition(new Vec2(20.5f,1.5f));
+        defaultContainers[60].SetType("single", 4);
+
+        defaultContainers[61].setPosition(new Vec2(26.5f,-4.5f));
+        defaultContainers[61].SetType("right-wall", 5);
+
+        defaultContainers[62].setPosition(new Vec2(26.5f,-1.5f));
+        defaultContainers[62].SetType("right-wall", 4);
+
+        defaultContainers[63].setPosition(new Vec2(26.5f,1.5f));
+        defaultContainers[63].SetType("right-wall", 3);
+
+        defaultContainers[64].setPosition(new Vec2(26.5f,4.5f));
+        defaultContainers[64].SetType("right-wall", 2);
+
+        defaultContainers[65].setPosition(new Vec2(26.5f,7.5f));
+        defaultContainers[65].SetType("right-wall", 1);
+
+        defaultContainers[66].setPosition(new Vec2(26.5f,10.5f));
+        defaultContainers[66].SetType("right-wall", 2);
+
+        defaultContainers[64].setPosition(new Vec2(11.5f,4.5f));
+        defaultContainers[64].SetType("right-wall", 2);
+
+        defaultContainers[65].setPosition(new Vec2(20.5f,4.5f));
+        defaultContainers[65].SetType("ground", 13);
+
+        defaultContainers[66].setPosition(new Vec2(17.5f,4.5f));
+        defaultContainers[66].SetType("corner", 4);
+
+        defaultContainers[67].setPosition(new Vec2(17.5f,7.5f));
+        defaultContainers[67].SetType("left-wall", 2);
+
+        defaultContainers[68].setPosition(new Vec2(17.5f,10.5f));
+        defaultContainers[68].SetType("left-wall", 5);
+
+
+        defaultContainers[69].setPosition(new Vec2(14.5f,10.5f));
+        defaultContainers[69].SetType("blank", 1);
+
+        defaultContainers[70].setPosition(new Vec2(26.5f,4.5f));
+        defaultContainers[70].SetType("right-wall", 5);
+
+        defaultContainers[71].setPosition(new Vec2(26.5f,4.5f));
+        defaultContainers[71].SetType("right-wall", 2);
+
+        defaultContainers[72].setPosition(new Vec2(26.5f,7.5f));
+        defaultContainers[72].SetType("right-wall", 1);
+
+        defaultContainers[73].setPosition(new Vec2(26.5f,10.5f));
+        defaultContainers[73].SetType("right-wall", 4);
 
         FinishLine finishLine = new FinishLine(this, new BoxShape(0.66f, 2f));
-        finishLine.setPosition(new Vec2(22f, 4.5f));
-        finishLine.setNextLevel(2);
+        finishLine.setPosition(new Vec2(20.5f, 9f));
+        finishLine.setNextLevel(1);
 
 
+        Flipper flipper = new Flipper(this, new Vec2(-9.5f, -7.5f));
+        Flipper flipper2 = new Flipper(this, new Vec2(8.5f, 7.5f));
+        Flipper flipper3 = new Flipper(this, new Vec2(-0.5f, -7.5f));
+        Flipper flipper4 = new Flipper(this, new Vec2(8.5f, -1.5f));
+        Flipper flipper5 = new Flipper(this, new Vec2(20.5f, -7.5f));
+
+        Obstacle obstacleOne = new Obstacle(this, new BoxShape(4.5f,1.5f));
+        obstacleOne.setPosition(new Vec2(20.5f,-13.5f));
+
+        Obstacle obstacleTwo = new Obstacle(this, new BoxShape(3f,1.5f));
+        obstacleTwo.setPosition(new Vec2(22f,13.5f));
     }
 
     public Student getStudent() {

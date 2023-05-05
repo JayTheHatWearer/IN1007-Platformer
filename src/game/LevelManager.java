@@ -49,7 +49,7 @@ public class LevelManager {
                 StudentController controllerOne = new StudentController(currentStudent);
                 view.addKeyListener(controllerOne);
                 StopMusic();
-                ChangeSound("data/sounds/music1.wav", false);
+                ChangeSound("data/sounds/music2.wav", false);
                 worldOne.start();
 
 
@@ -63,8 +63,10 @@ public class LevelManager {
                 view.setWorld(worldTwo);
                 StudentController controllerTwo = new StudentController(currentStudent);
                 view.addKeyListener(controllerTwo);
+                StopMusic();
+                ChangeSound("data/sounds/music1.wav", false);
                 worldTwo.start();
-                JFrame debug = new DebugViewer(worldTwo, 800, 480);
+
 
             }
 
@@ -95,6 +97,10 @@ public class LevelManager {
         loadLevel(Game.getView(), levelNumber);
     }
 
+    public int getCurrentLevel() {
+        return levelNumber;
+    }
+
     public void ResetLevel() {
 
         ArrayList<Flipper> collectedFlippers = currentStudent.getCollectedFlippers();
@@ -103,7 +109,7 @@ public class LevelManager {
     }
 
     public void DeadStudent() {
-        setCurrentLevel(1);
+        setCurrentLevel(getCurrentLevel());
     }
 
     public void ChangeSound(String path, boolean isEffect) {
