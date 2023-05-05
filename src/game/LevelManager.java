@@ -27,6 +27,8 @@ public class LevelManager {
 
     public void loadLevel(GameView view, int levelToBe) {
         view.getWorld().stop();
+        levelNumber = levelToBe;
+
         switch (levelToBe) {
             case 0 -> {
                 LevelZero worldZero = new LevelZero();
@@ -78,6 +80,8 @@ public class LevelManager {
                 view.setWorld(worldThree);
                 StudentController controllerThree = new StudentController(currentStudent);
                 view.addKeyListener(controllerThree);
+                // StopMusic();
+                ChangeSound("data/sounds/music1.wav", false);
                 worldThree.start();
             }
         }
